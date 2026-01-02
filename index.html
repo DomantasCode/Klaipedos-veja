@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Klaipėdos veja - Premium Landscaping</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          container: {
+            center: true,
+            padding: {
+              DEFAULT: '1.5rem',
+              sm: '2rem',
+              lg: '4rem',
+              xl: '5rem',
+              '2xl': '6rem',
+            },
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+          },
+          colors: {
+            'nature-dark': '#0f291e',     /* Deeper, rich forest green */
+            'nature-green': '#355e3b',    /* Hunter Green */
+            'nature-light': '#8fbc8f',    /* Sage / Dark Sea Green */
+            'earth-brown': '#8d6e63',     /* Bronze/Clay (Natural Earth) */
+            'earth-light': '#d7ccc8',     /* Light Earth */
+            'stone-warm': '#fafaf9',      /* Stone White */
+            'stone-dark': '#e7e5e4',      /* Stone Gray */
+          },
+          boxShadow: {
+            'soft': '0 20px 40px -15px rgba(15, 41, 30, 0.05)',
+            'glow': '0 0 20px rgba(141, 110, 99, 0.3)',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Smooth scrolling for anchor links */
+    /* Smooth scrolling for anchor links */
+    html {
+      scroll-behavior: smooth;
+      font-size: 85%;
+      /* Scale down entire UI globally */
+    }
+
+    /* Custom Range Slider Styling */
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      height: 24px;
+      width: 24px;
+      border-radius: 50%;
+      background: #355e3b;
+      cursor: pointer;
+      margin-top: -10px;
+      box-shadow: 0 0 0 4px #fff;
+      border: 1px solid #e5e7eb;
+      transition: transform 0.1s;
+    }
+
+    input[type=range]::-webkit-slider-thumb:hover {
+      transform: scale(1.1);
+    }
+
+    input[type=range]::-webkit-slider-runnable-track {
+      width: 100%;
+      height: 4px;
+      cursor: pointer;
+      background: #e5e7eb;
+      border-radius: 2px;
+    }
+  </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "@google/genai": "https://esm.sh/@google/genai@^1.34.0"
+  }
+}
+</script>
+  <link rel="stylesheet" href="/index.css">
+</head>
+
+<body class="bg-stone-warm text-gray-800 antialiased selection:bg-nature-green selection:text-white">
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+
+</html>
