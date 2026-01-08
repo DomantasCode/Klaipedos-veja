@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Shovel, Droplets, Truck, CheckCircle2, ArrowUpRight, X, ArrowRight, Calendar, Phone, Leaf } from 'lucide-react';
+import { Shovel, Droplets, Truck, CheckCircle2, ArrowUpRight, X, ArrowRight, Calendar, Phone, Leaf, Bot } from 'lucide-react';
 
 interface Service {
   id: string;
@@ -176,35 +176,35 @@ const Services: React.FC = () => {
     },
     {
       id: '03',
-      icon: <Shovel className="w-8 h-8" />,
-      title: 'Sklypo paruošimas',
-      description: 'Naudojame profesionalią techniką grunto frezavimui, lyginimui ir planiravimui.',
-      features: ['Frezavimas', 'Lyginimas', 'Akmenų rinkimas'],
-      color: 'bg-earth-brown',
-      textColor: 'text-earth-brown',
-      fullDescription: 'Jokia sėkla neaugs gerai, jei pagrindas bus prastas. Mes specializuojamės sunkių, molingų ar apleistų sklypų renovacijoje. Naudojame galingus kultivatorius ir specialią lyginimo techniką.',
+      icon: <Bot className="w-8 h-8" />,
+      title: 'Vejos roboto įrengimas',
+      description: 'Diegiame ir programuojame vejos robotus. Paruošiame veją, kad robotas dirbtų be trikdžių.',
+      features: ['Instaliavimas', 'Programavimas', 'Laidų klojimas'],
+      color: 'bg-stone-800',
+      textColor: 'text-stone-800',
+      fullDescription: 'Vejos robotas – tai laisvė nuo pjovimo. Mes ne tik sumontuojame įrangą, bet ir paruošiame sklypą: išlyginame duobes, pašaliname kliūtis, paklojame perimetro laidus taip, kad robotas pasiektų kiekvieną kampelį.',
       process: [
-        { title: 'Reljefo formavimas', desc: 'Aukščių nustatymas, pertekliaus nukasimas.' },
-        { title: 'Frezavimas', desc: 'Gilus grunto purenimas.' },
-        { title: 'Drenažas', desc: 'Vandens nuvedimo sistemų įrengimas.' },
-        { title: 'Planiravimas', desc: 'Galutinis paviršiaus išlyginimas.' }
+        { title: 'Projektavimas', desc: 'Zonų nustatymas ir maršruto planavimas.' },
+        { title: 'Laido klojimas', desc: 'Perimetro laido instaliavimas po žeme.' },
+        { title: 'Montavimas', desc: 'Technikos ir stotelės pajungimas.' },
+        { title: 'Paleidimas', desc: 'Programavimas ir sistemos testavimas.' }
       ],
       image: "https://images.pexels.com/photos/2203683/pexels-photo-2203683.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
       id: '04',
-      icon: <Truck className="w-8 h-8" />,
-      title: 'Juodžemio atvežimas',
-      description: 'Pristatome aukštos kokybės, sijotą juodžemį. Išlyginame sklypo reljefą.',
-      features: ['Sijotas juodžemis', 'Sklypo pakėlimas', 'Reljefo formavimas'],
-      color: 'bg-stone-600',
-      textColor: 'text-stone-600',
-      fullDescription: 'Kokybiškas juodžemis yra derlingos vejos garantas. Mes tiekiame tik laboratorijoje patikrintą, sijotą juodžemį be akmenų ir šaknų. Mūsų technika leidžia jį tolygiai paskleisti net sunkiai prieinamose sklypo vietose.',
+      icon: <Leaf className="w-8 h-8" />,
+      title: 'Dekoratyvinis Apželdinimas',
+      description: 'Kuriame jaukumą: sodiname medžius, klojame dekoratyvinius akmenukus, formuojame gėlynus.',
+      features: ['Augalų sodinimas', 'Dekoratyvinė skalda', 'Akmenukai'],
+      color: 'bg-emerald-600',
+      textColor: 'text-emerald-600',
+      fullDescription: 'Jaukus kiemas – tai ne tik lygi veja. Suteikiame sklypui gyvybės sodindami dekoratyvinius augalus, medžius ir kurdami stilingas zonas su akmenukais. Parinksime augalus, kurie dera prie jūsų dirvožemio ir apšvietimo.',
       process: [
-        { title: 'Pristatymas', desc: 'Atvežame juodžemį savivarčiais.' },
-        { title: 'Paskleidimas', desc: 'Sluoksnio suformavimas bobcat krautuvais.' },
-        { title: 'Tankinimas', desc: 'Lengvas sutankinimas.' },
-        { title: 'Paruošimas', desc: 'Galutinis paruošimas sėjai.' }
+        { title: 'Dizainas', desc: 'Augalų ir zonų parinkimas.' },
+        { title: 'Paruošimas', desc: 'Duobių kasimas, grunto gerinimas.' },
+        { title: 'Sodinimas', desc: 'Medžių ir krūmų sodinimas.' },
+        { title: 'Dekoravimas', desc: 'Akmenukų pylimas, mulčiavimas.' }
       ],
       image: "https://images.pexels.com/photos/1094770/pexels-photo-1094770.jpeg"
     },
