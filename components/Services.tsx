@@ -1,18 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Shovel, Droplets, Truck, CheckCircle2, ArrowUpRight, X, ArrowRight, Calendar, Phone, Leaf, Bot } from 'lucide-react';
-
-interface Service {
-  id: string;
-  icon: React.ReactElement;
-  title: string;
-  description: string;
-  features: string[];
-  color: string;
-  textColor: string;
-  fullDescription: string;
-  process: { title: string; desc: string }[];
-  image: string;
-}
+import { Phone, CheckCircle2, ArrowUpRight, X, Bot } from 'lucide-react';
+import { services } from '../data/services';
+import { Service } from '../types';
+import { CONTACT_INFO } from '../constants';
 
 const ServiceModal: React.FC<{ service: Service; onClose: () => void }> = ({ service, onClose }) => {
   useEffect(() => {
@@ -49,7 +39,8 @@ const ServiceModal: React.FC<{ service: Service; onClose: () => void }> = ({ ser
           {/* Icon Badge Overlay */}
           <div className="absolute bottom-8 left-8 right-8 text-white z-10 hidden md:block">
             <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl ${service.color} mb-6 shadow-lg shadow-black/20 text-white`}>
-              {React.cloneElement(service.icon, { size: 32 })}
+              {/* Render icon directly if it's a ReactElement */}
+              {React.isValidElement(service.icon) ? React.cloneElement(service.icon as React.ReactElement, { size: 32 } as any) : service.icon}
             </div>
             <h2 className="font-serif text-4xl font-bold leading-tight drop-shadow-md">
               {service.title}
@@ -74,7 +65,7 @@ const ServiceModal: React.FC<{ service: Service; onClose: () => void }> = ({ ser
             {/* Mobile Title (visible only on small screens) */}
             <div className="md:hidden mb-8">
               <div className={`inline-flex items-center justify-center w-12 h-12 rounded-xl ${service.color} mb-4 text-white`}>
-                {React.cloneElement(service.icon, { size: 24 })}
+                {React.isValidElement(service.icon) ? React.cloneElement(service.icon as React.ReactElement, { size: 24 } as any) : service.icon}
               </div>
               <h2 className="font-serif text-3xl font-bold text-gray-900">
                 {service.title}
@@ -91,27 +82,31 @@ const ServiceModal: React.FC<{ service: Service; onClose: () => void }> = ({ ser
             {/* Features (Tags) */}
             <div className="flex flex-wrap gap-3 mb-12">
               {service.features.map((feature, i) => (
-                <span key={i} className="px-4 py-2 rounded-full bg-stone-50 border border-stone-100 text-sm font-semibold text-gray-600">
+                <span key={i} className="px-3 py-1 bg-white border border-stone-200 rounded-full text-xs font-bold uppercase tracking-wider text-stone-600 shadow-sm">
                   {feature}
                 </span>
               ))}
             </div>
 
-            {/* Process Timeline */}
+            {/* Process / Services List */}
             <div className="mb-12">
               <h3 className="text-lg font-bold text-gray-900 uppercase tracking-widest mb-8 flex items-center gap-2">
                 <span className={`w-2 h-2 rounded-full ${service.color}`}></span>
-                Darbų eiga
+                {service.processTitle || 'Darbų eiga'}
               </h3>
 
-              <div className="relative border-l-2 border-stone-100 ml-3 space-y-10 pb-2">
+              <div className={`relative ${service.processTitle ? 'space-y-6' : 'border-l-2 border-stone-100 ml-3 space-y-10 pb-2'}`}>
                 {service.process.map((step, idx) => (
-                  <div key={idx} className="relative pl-8">
-                    {/* Timeline Dot */}
-                    <div className={`absolute -left-[9px] top-0 w-4 h-4 rounded-full border-2 border-white ${service.color} shadow-sm`}></div>
+                  <div key={idx} className={`relative ${service.processTitle ? 'pl-0 bg-stone-50 p-8 rounded-[2rem] hover:bg-stone-100 transition-colors' : 'pl-8'}`}>
+                    {/* Timeline Dot only if no custom title */}
+                    {!service.processTitle && (
+                      <div className={`absolute -left-[9px] top-0 w-4 h-4 rounded-full border-2 border-white ${service.color} shadow-sm`}></div>
+                    )}
 
-                    <h4 className="font-serif text-xl font-bold text-gray-800 mb-2">{step.title}</h4>
-                    <p className="text-sm text-gray-500 leading-relaxed">{step.desc}</p>
+                    <h4 className={`font-serif text-xl font-bold text-gray-800 mb-3 ${service.processTitle ? 'pl-5' : ''}`}>
+                      {step.title}
+                    </h4>
+                    <p className={`text-gray-500 leading-relaxed ${service.processTitle ? 'pl-5' : ''}`}>{step.desc}</p>
                   </div>
                 ))}
               </div>
@@ -122,7 +117,7 @@ const ServiceModal: React.FC<{ service: Service; onClose: () => void }> = ({ ser
           {/* Sticky Footer CTA */}
           <div className="p-8 border-t border-gray-100 bg-gray-50/50">
             <a
-              href="tel:+37060000000"
+              href={CONTACT_INFO.phone.href}
               className={`w-full flex items-center justify-center gap-3 py-4 rounded-xl font-bold text-white shadow-lg transition-transform hover:-translate-y-0.5 active:translate-y-0 ${service.color}`}
             >
               <Phone size={20} />
@@ -138,77 +133,6 @@ const ServiceModal: React.FC<{ service: Service; onClose: () => void }> = ({ ser
 
 const Services: React.FC = () => {
   const [selectedService, setSelectedService] = useState<Service | null>(null);
-
-  const services: Service[] = [
-    {
-      id: '01',
-      icon: <SproutIcon />,
-      title: 'Vejos įrengimas',
-      description: 'Svajojate apie tobulą kilimą savo kieme? Atliekame visus darbus nuo pamatų...',
-      features: ['Sportinė veja', 'Dekoratyvinė veja', 'Hidrosėja'],
-      color: 'bg-nature-green',
-      textColor: 'text-nature-green',
-      fullDescription: 'Mes suprantame, kad veja nėra tik žolė – tai jūsų kiemo pamatas. Mūsų vejos įrengimo procesas paremtas ilgamete patirtimi ir moksliniais agronomijos principais. Naudojame tik sertifikuotus sėklų mišinius, kurie pritaikyti Lietuvos klimatui ir jūsų dirvožemio tipui (DLF ir kt.).',
-      process: [
-        { title: 'Sklypo paruošimas', desc: 'Senos velėnos pašalinimas, piktžolių naikinimas.' },
-        { title: 'Dirvos gerinimas', desc: 'Juodžemio atvežimas, frezavimas, tręšimas.' },
-        { title: 'Lyginimas', desc: 'Kruopštus sklypo išlyginimas ir volavimas.' },
-        { title: 'Sėjimas', desc: 'Sėjimas profesionalia įranga kryžminiu būdu.' }
-      ],
-      image: "https://images.pexels.com/photos/1453799/pexels-photo-1453799.jpeg"
-    },
-    {
-      id: '02',
-      icon: <Droplets className="w-8 h-8" />,
-      title: 'Laistymo sistemos',
-      description: 'Pamirškite varginantį laistymą žarna. Projektuojame ir diegiame išmanias sistemas.',
-      features: ['Automatinis valdymas', 'Lietaus jutikliai', 'Purkštukų reguliavimas'],
-      color: 'bg-blue-600',
-      textColor: 'text-blue-600',
-      fullDescription: 'Automatizuota laistymo sistema – tai investicija, kuri atsiperka ne tik sutaupytu vandeniu, bet ir laiku. Diegiame tik patikimų gamintojų (Rain Bird, Hunter) įrangą. Mūsų sistemos turi išmaniuosius valdiklius, kurie reaguoja į oro sąlygas.',
-      process: [
-        { title: 'Projektavimas', desc: 'Sudaromas tikslus laistymo planas.' },
-        { title: 'Montavimas', desc: 'Vamzdynų klojimas, purkštukų montavimas.' },
-        { title: 'Programavimas', desc: 'Valdiklio suderinimas optimaliam režimui.' },
-        { title: 'Testavimas', desc: 'Sistemos patikra ir apmokymas naudotis.' }
-      ],
-      image: "https://images.pexels.com/photos/4132326/pexels-photo-4132326.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-    },
-    {
-      id: '03',
-      icon: <Bot className="w-8 h-8" />,
-      title: 'Vejos roboto įrengimas',
-      description: 'Diegiame ir programuojame vejos robotus. Paruošiame veją, kad robotas dirbtų be trikdžių.',
-      features: ['Instaliavimas', 'Programavimas', 'Laidų klojimas'],
-      color: 'bg-stone-800',
-      textColor: 'text-stone-800',
-      fullDescription: 'Vejos robotas – tai laisvė nuo pjovimo. Mes ne tik sumontuojame įrangą, bet ir paruošiame sklypą: išlyginame duobes, pašaliname kliūtis, paklojame perimetro laidus taip, kad robotas pasiektų kiekvieną kampelį.',
-      process: [
-        { title: 'Projektavimas', desc: 'Zonų nustatymas ir maršruto planavimas.' },
-        { title: 'Laido klojimas', desc: 'Perimetro laido instaliavimas po žeme.' },
-        { title: 'Montavimas', desc: 'Technikos ir stotelės pajungimas.' },
-        { title: 'Paleidimas', desc: 'Programavimas ir sistemos testavimas.' }
-      ],
-      image: "https://images.pexels.com/photos/2203683/pexels-photo-2203683.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-    },
-    {
-      id: '04',
-      icon: <Leaf className="w-8 h-8" />,
-      title: 'Dekoratyvinis Apželdinimas',
-      description: 'Kuriame jaukumą: sodiname medžius, klojame dekoratyvinius akmenukus, formuojame gėlynus.',
-      features: ['Augalų sodinimas', 'Dekoratyvinė skalda', 'Akmenukai'],
-      color: 'bg-emerald-600',
-      textColor: 'text-emerald-600',
-      fullDescription: 'Jaukus kiemas – tai ne tik lygi veja. Suteikiame sklypui gyvybės sodindami dekoratyvinius augalus, medžius ir kurdami stilingas zonas su akmenukais. Parinksime augalus, kurie dera prie jūsų dirvožemio ir apšvietimo.',
-      process: [
-        { title: 'Dizainas', desc: 'Augalų ir zonų parinkimas.' },
-        { title: 'Paruošimas', desc: 'Duobių kasimas, grunto gerinimas.' },
-        { title: 'Sodinimas', desc: 'Medžių ir krūmų sodinimas.' },
-        { title: 'Dekoravimas', desc: 'Akmenukų pylimas, mulčiavimas.' }
-      ],
-      image: "https://images.pexels.com/photos/1094770/pexels-photo-1094770.jpeg"
-    },
-  ];
 
   return (
     <>
@@ -226,7 +150,7 @@ const Services: React.FC = () => {
           </div>
           <div className="md:w-1/3 text-right hidden md:block">
             <p className="text-gray-600 text-base max-w-sm ml-auto leading-relaxed">
-              Viskas, ko reikia tobulam kiemui – nuo pirmo kastuvo iki paskutinio lašo vandens.
+              Visapusiški sprendimai Jūsų kiemui. Nuo vejos įrengimo ir laistymo sistemų iki apželdinimo bei nuolatinės priežiūros.
             </p>
           </div>
         </div>
@@ -246,14 +170,12 @@ const Services: React.FC = () => {
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-300"></div>
-
-
               </div>
 
               {/* Floating Icon */}
               <div className="absolute top-44 right-8 z-10">
                 <div className={`w-16 h-16 rounded-2xl ${service.color} text-white flex items-center justify-center shadow-lg shadow-black/10 group-hover:scale-110 transition-transform duration-300 ring-4 ring-white`}>
-                  {React.cloneElement(service.icon, { size: 28 })}
+                  {React.isValidElement(service.icon) ? React.cloneElement(service.icon as React.ReactElement, { size: 28 } as any) : service.icon}
                 </div>
               </div>
 
@@ -270,8 +192,8 @@ const Services: React.FC = () => {
                 <div className="mt-auto">
                   {/* Feature Tags */}
                   <div className="flex flex-wrap gap-2 mb-6">
-                    {service.features.slice(0, 2).map((feature, i) => (
-                      <span key={i} className="px-3 py-1 rounded-lg bg-stone-50 text-[10px] font-bold uppercase tracking-wide text-gray-500 group-hover:bg-nature-green/10 group-hover:text-nature-green transition-colors">
+                    {service.features.slice(0, service.id === '03' ? 3 : 2).map((feature, i) => (
+                      <span key={i} className="px-3 py-1 bg-white border border-stone-200 rounded-md text-[10px] font-bold uppercase tracking-wider text-stone-500 shadow-sm group-hover:border-nature-green/30 group-hover:text-nature-green transition-all">
                         {feature}
                       </span>
                     ))}
@@ -291,6 +213,37 @@ const Services: React.FC = () => {
             </div>
           ))}
         </div>
+
+        {/* Robot Installation Partner Section - Compact Version */}
+        <div className="mt-12 max-w-2xl mx-auto">
+          <div className="bg-stone-50 rounded-2xl p-6 flex flex-col md:flex-row items-center gap-6 border border-stone-100 group hover:shadow-lg transition-all duration-300">
+
+            {/* Icon */}
+            <div className="w-12 h-12 bg-white rounded-full flex-shrink-0 flex items-center justify-center shadow-sm text-stone-600">
+              <Bot size={24} />
+            </div>
+
+            {/* Text Content */}
+            <div className="flex-1 text-center md:text-left">
+              <h3 className="font-serif text-lg font-bold text-gray-800 mb-1">
+                Planuojate įsigyti vejos robotą?
+              </h3>
+              <p className="text-sm text-gray-500 leading-relaxed">
+                Profesionalus parinkimas ir instaliavimas.
+              </p>
+            </div>
+
+            {/* Contact - Compact */}
+            <div className="flex flex-col items-center md:items-end gap-1 flex-shrink-0 border-t md:border-t-0 md:border-l border-stone-200 pt-4 md:pt-0 md:pl-6 w-full md:w-auto">
+              <span className="text-[10px] font-bold uppercase tracking-widest text-stone-400">Meistro kontaktai</span>
+              <a href={CONTACT_INFO.phone.href} className="flex items-center gap-2 text-nature-green font-bold hover:text-nature-dark transition-colors text-base">
+                <Phone size={16} />
+                {CONTACT_INFO.phone.display}
+              </a>
+            </div>
+
+          </div>
+        </div>
       </div>
 
       {selectedService && (
@@ -302,25 +255,5 @@ const Services: React.FC = () => {
     </>
   );
 };
-
-// Custom Icon for 'Sprout' variation
-const SproutIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="32"
-    height="32"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path d="M7 20h10" />
-    <path d="M10 20c5.5-2.5.8-6.4 3-10" />
-    <path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z" />
-    <path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z" />
-  </svg>
-);
 
 export default Services;

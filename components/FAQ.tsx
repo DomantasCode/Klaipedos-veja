@@ -1,28 +1,7 @@
 import React, { useState } from 'react';
-import { ChevronDown, Plus, Minus, Phone } from 'lucide-react';
-
-const faqData = [
-  {
-    question: "Kada geriausias laikas įsirengti veją?",
-    answer: "Palankiausias laikas sėti veją yra pavasaris (nuo balandžio vidurio) arba ankstyvas ruduo (rugpjūčio pab. – rugsėjo vid.). Tuo metu dirva yra pakankamai šilta ir drėgna, o piktžolių augimas lėtesnis."
-  },
-  {
-    question: "Ar būtina įsirengti automatinę laistymo sistemą?",
-    answer: "Nors nebūtina, mes griežtai rekomenduojame. Be reguliaraus laistymo net pati kokybiškiausia sėkla ar ruloninė veja gali išdžiūti per savaitę karštą vasarą. Laistymo sistema taupo jūsų laiką ir vandenį."
-  },
-  {
-    question: "Kiek laiko trunka vejos įrengimo darbai?",
-    answer: "Standartiniam 6-10 arų sklypui paruošiamieji darbai ir sėjimas užtrunka apie 3-5 darbo dienas, priklausomai nuo esamo grunto būklės ir pasirinktų paslaugų paketo."
-  },
-  {
-    question: "Kokią garantiją suteikiate?",
-    answer: "Visiems inžineriniams darbams (laistymo sistemoms, robotų instaliacijai) suteikiame 2 metų garantiją. Vejos sudygimui garantuojame, jei laikomasi mūsų priežiūros rekomendacijų."
-  },
-  {
-    question: "Ar atvežate juodžemį?",
-    answer: "Taip, mes organizuojame kokybiško, sijoto juodžemio atvežimą. Prieš atvežant, įvertiname jūsų sklypo esamą gruntą ir patariame, koks sluoksnis yra reikalingas."
-  }
-];
+import { Plus, Minus, Phone } from 'lucide-react';
+import { faqData } from '../data/faq';
+import { CONTACT_INFO } from '../constants';
 
 const FAQ: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -53,7 +32,7 @@ const FAQ: React.FC = () => {
               Taupome jūsų laiką. Surinkome informaciją, kuri padės geriau suprasti apželdinimo procesą ir pasiruošti darbams.
             </p>
 
-            <a href="tel:+37060000000" className="inline-flex items-center gap-2 text-nature-dark font-bold hover:text-nature-green transition-colors border-b-2 border-nature-dark/20 hover:border-nature-green pb-1">
+            <a href={CONTACT_INFO.phone.href} className="inline-flex items-center gap-2 text-nature-dark font-bold hover:text-nature-green transition-colors border-b-2 border-nature-dark/20 hover:border-nature-green pb-1">
               <Phone size={18} />
               <span>Turite klausimų? Skambinkite</span>
             </a>

@@ -1,123 +1,103 @@
-import React, { useState } from 'react';
-import { ArrowLeftRight, Image as ImageIcon } from 'lucide-react';
+import React from 'react';
+import { Image as ImageIcon } from 'lucide-react';
+import { projects } from '../data/projects';
+import { CONTACT_INFO } from '../constants';
 
-interface Project {
-  id: number;
-  title: string;
-  category: string;
-  beforeImg: string;
-  afterImg: string;
-}
-
-// Reduced to 2 projects
-const projects: Project[] = [
-  {
-    id: 1,
-    title: "Vejos įrengimas privačiame kieme",
-    category: "Vejos įrengimas",
-    // Using grayscale/sepia filters on placeholder seeds to simulate 'before' state
-    beforeImg: "https://picsum.photos/seed/muddy1/800/600?grayscale",
-    afterImg: "https://picsum.photos/seed/lawn1/800/600",
-  },
-  {
-    id: 3,
-    title: "Sklypo paruošimas ir apželdinimas",
-    category: "Aplinkos tvarkymas",
-    beforeImg: "https://picsum.photos/seed/dirt3/800/600?grayscale",
-    afterImg: "https://picsum.photos/seed/grass5/800/600",
-  }
-];
-
-const ComparisonSlider: React.FC<{ before: string; after: string; alt: string }> = ({ before, after, alt }) => {
-  const [sliderPosition, setSliderPosition] = useState(50);
-
-  const handleDrag = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSliderPosition(Number(e.target.value));
-  };
-
+const BeforeAfterCard: React.FC<{ before: string; after: string; alt: string }> = ({ before, after, alt }) => {
   return (
-    <div className="relative w-full aspect-[4/3] overflow-hidden rounded-[2rem] shadow-xl group select-none bg-stone-100 ring-1 ring-stone-200">
-      {/* After Image (Background) - The 'Green' Result */}
-      <img
-        src={after}
-        alt={`Po ${alt}`}
-        className="absolute inset-0 w-full h-full object-cover"
-      />
-      <div className="absolute top-4 right-4 bg-nature-green/90 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider backdrop-blur-sm shadow-sm pointer-events-none z-10">
-        Po
-      </div>
-
-      {/* Before Image (Foreground - Clipped) - The 'Work' Start */}
-      <div
-        className="absolute inset-0 w-full h-full"
-        style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
-      >
+    <div className="group relative w-full h-full min-h-[300px] md:min-h-[400px] flex overflow-hidden">
+      {/* Before Side */}
+      <div className="relative flex-1 h-full overflow-hidden border-r-2 border-white/20">
         <img
           src={before}
-          alt={`Prieš ${alt}`}
-          className="absolute inset-0 w-full h-full object-cover"
+          alt={`Prieš - ${alt}`}
+          className="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-110"
         />
-        <div className="absolute top-4 left-4 bg-stone-800/80 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider backdrop-blur-sm shadow-sm pointer-events-none z-10">
-          Prieš
+        <div className="absolute top-4 left-4">
+          <span className="bg-white/90 text-stone-900 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-lg backdrop-blur-md">
+            Prieš
+          </span>
         </div>
       </div>
 
-      {/* Slider Handle Line */}
-      <div
-        className="absolute inset-y-0 w-1 bg-white cursor-col-resize shadow-[0_0_15px_rgba(0,0,0,0.5)] z-20"
-        style={{ left: `${sliderPosition}%` }}
-      >
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg text-nature-dark border-4 border-nature-green transition-transform hover:scale-110">
-          <ArrowLeftRight size={20} />
+      {/* After Side */}
+      <div className="relative flex-1 h-full overflow-hidden">
+        <img
+          src={after}
+          alt={`Po - ${alt}`}
+          className="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-110"
+        />
+        <div className="absolute top-4 right-4">
+          <span className="bg-nature-green text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-lg">
+            Po
+          </span>
         </div>
       </div>
 
-      {/* Interaction Layer */}
-      <input
-        type="range"
-        min="0"
-        max="100"
-        value={sliderPosition}
-        onChange={handleDrag}
-        className="absolute inset-0 w-full h-full opacity-0 cursor-col-resize z-30 touch-none"
-        aria-label="Compare before and after images"
-      />
+      {/* Center Divider/Icon Overlay */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-xl z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <ImageIcon size={16} className="text-nature-dark" />
+      </div>
     </div>
   );
 };
 
 const Gallery: React.FC = () => {
   return (
-    <div className="container mx-auto">
-      <div className="text-center mb-16">
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-nature-green/10 text-nature-green text-xs font-bold uppercase tracking-widest mb-6">
+    <div className="container mx-auto px-4 py-12">
+      <div className="text-center mb-20">
+        <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-nature-green/5 border border-nature-green/10 text-nature-green text-xs font-bold uppercase tracking-widest mb-6">
           <ImageIcon size={14} />
-          <span>Mūsų Darbai</span>
+          <span>Atlikti Darbai</span>
         </div>
-        <h2 className="font-serif text-4xl md:text-5xl font-bold text-nature-dark mb-6 leading-tight">
-          Virsmai, kuriais <br /><span className="text-nature-green italic">didžiuojamės</span>
+        <h2 className="font-serif text-4xl md:text-6xl font-bold text-nature-dark mb-6 leading-tight">
+          Pokyčiai, kurie <span className="text-nature-green italic">įkvepia</span>
         </h2>
-        <p className="text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed">
-          Pamatykite profesionalaus apželdinimo galią. Vilkite slankiklį, kad pamatytumėte pokytį, kurį sukuriame Klaipėdos kiemams.
+        <p className="text-gray-500 text-lg max-w-2xl mx-auto leading-relaxed font-light">
+          Kiekvienas projektas – tai unikali istorija.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12">
         {projects.map((project) => (
-          <div key={project.id} className="flex flex-col gap-6">
-            <ComparisonSlider
-              before={project.beforeImg}
-              after={project.afterImg}
-              alt={project.title}
-            />
-            <div className="flex justify-between items-end border-b pb-4 border-gray-200">
-              <div>
-                <span className="text-xs font-bold text-nature-green uppercase tracking-widest bg-nature-green/10 px-3 py-1 rounded-full mb-3 inline-block">{project.category}</span>
-                <h3 className="text-2xl font-serif font-bold text-gray-800">{project.title}</h3>
-              </div>
+          <div key={project.id} className="bg-white rounded-[2.5rem] overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-500 border border-warm-gray-100/50 flex flex-col">
+            {/* Image Area */}
+            <div className="aspect-[4/3] w-full">
+              <BeforeAfterCard
+                before={project.beforeImg}
+                after={project.afterImg}
+                alt={project.title}
+              />
+            </div>
+
+            {/* Text Area */}
+            <div className="p-8 text-center bg-white relative z-20">
+              <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2 block">
+                {project.category}
+              </span>
+              <h3 className="text-2xl font-serif font-bold text-nature-dark mb-0">
+                {project.title}
+              </h3>
             </div>
           </div>
         ))}
+      </div>
+
+      {/* Facebook Link Button */}
+      <div className="mt-16 text-center">
+        <a
+          href={CONTACT_INFO.socials.facebook.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-3 bg-white text-nature-dark px-8 py-4 rounded-full font-bold border border-stone-200 shadow-md hover:shadow-xl hover:border-nature-green hover:text-nature-green transition-all duration-300 group"
+        >
+          <span className="uppercase tracking-widest text-xs">Daugiau darbų Facebook</span>
+          <div className="w-8 h-8 rounded-full bg-stone-100 flex items-center justify-center group-hover:bg-nature-green group-hover:text-white transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+            </svg>
+          </div>
+        </a>
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight, Phone } from 'lucide-react';
+import { CONTACT_INFO } from '../constants';
 
 const Hero: React.FC = () => {
   return (
@@ -11,10 +12,9 @@ const Hero: React.FC = () => {
           loop
           muted
           playsInline
-          className="w-full h-full object-cover scale-105"
+          className="w-full h-full object-cover scale-125"
         >
-
-          <source src="/hero-video.mp4" type="video/mp4" />
+          <source src="/Cinematic_Soil_Leveling_Video_Generation.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
 
@@ -29,22 +29,22 @@ const Hero: React.FC = () => {
       <div className="container mx-auto relative z-10 text-center text-white">
         <div className="animate-fade-in-up">
           <span className="inline-block px-4 py-2 mb-6 border border-white/30 rounded-full text-xs font-bold tracking-widest uppercase bg-white/10 backdrop-blur-md">
-            Apželdinimas Vakarų Lietuvoje
+            Dirbame Klaipėdos regione
           </span>
           <h1 className="font-serif text-5xl md:text-7xl font-bold leading-tight mb-6 drop-shadow-lg">
-            Tobula veja ir <br />
+            Vejos įrengimas ir <br />
             <span className="text-nature-light">laistymo sistemos</span>
           </h1>
 
           {/* Reduced max-width to max-w-lg to make lines shorter as requested */}
           <p className="text-lg md:text-xl text-stone-200 max-w-lg mx-auto mb-10 leading-relaxed font-light">
-            Nuo sklypo paruošimo iki automatinio laistymo – viskas iš vienų rankų. Profesionaliai, greitai ir su garantija Klaipėdoje bei rajone.
+            Užtikriname kokybę ir ilgaamžį rezultatą, o kartu teikiame ir priežiūros bei dekoratyvinio apželdinimo paslaugas.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             {/* Changed to Call Action */}
             <a
-              href="tel:+37060000000"
+              href={CONTACT_INFO.phone.href}
               className="px-8 py-4 bg-nature-light text-white rounded-full font-bold text-lg hover:bg-green-500 transition-all transform hover:scale-105 flex items-center gap-2 shadow-lg hover:shadow-green-500/30 ring-4 ring-transparent hover:ring-nature-light/30"
             >
               Paskambinti

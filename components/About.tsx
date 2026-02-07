@@ -15,8 +15,8 @@ const About: React.FC = () => {
                     {/* Main Image */}
                     <div className="relative z-10 rounded-[2.5rem] overflow-hidden shadow-2xl transition-transform duration-500 hover:scale-[1.01]">
                         <img
-                            src="https://picsum.photos/seed/landscaper_pro/600/800"
-                            alt="Professional Landscaper"
+                            src="/about-main-real-bright.png"
+                            alt="Mūsų komanda"
                             className="w-full h-[500px] object-cover"
                         />
                         {/* Overlay Gradient */}
@@ -26,7 +26,7 @@ const About: React.FC = () => {
                     {/* Secondary Floating Image */}
                     <div className="absolute -bottom-12 -right-12 w-48 h-48 md:w-64 md:h-64 rounded-[2rem] overflow-hidden border-[8px] border-stone-50 shadow-xl z-20 hidden md:block animate-fade-in-up">
                         <img
-                            src="https://picsum.photos/seed/grass_macro_detail/400/400"
+                            src="/about-detail-pro.png"
                             alt="Green Grass Detail"
                             className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-700"
                         />
@@ -35,7 +35,7 @@ const About: React.FC = () => {
                     {/* Stats Badge - Floating Top Left */}
                     <div className="absolute top-8 -left-4 md:-left-12 bg-nature-dark text-white p-6 rounded-2xl shadow-glow z-30 max-w-[180px] border border-white/10 backdrop-blur-sm">
                         <div className="flex items-baseline gap-1 mb-1">
-                            <span className="text-4xl font-serif font-bold text-nature-light">12</span>
+                            <span className="text-4xl font-serif font-bold text-nature-light">10</span>
                             <span className="text-xl font-bold text-nature-green">+</span>
                         </div>
                         <div className="text-xs font-medium uppercase tracking-wider opacity-80 leading-relaxed text-stone-300">
@@ -73,9 +73,9 @@ const About: React.FC = () => {
 
                     <div className="prose prose-lg text-gray-600 mb-10">
                         <p className="leading-relaxed mb-6">
-                            „Klaipėdos veja“ – tai daugiau nei apželdinimo paslaugos. Tai šeimos verslas, gimęs iš aistros tvarkingai, estetiškai ir tvariai aplinkai. Mes suprantame, kad kiemas yra namų tąsa – ramybės oazė, kurioje kuriate prisiminimus.
+                            „Klaipėdos veja“ – tai daugiau nei apželdinimo paslaugos. Tai verslas, kuriam svarbi estetiška ir tvarkinga aplinka. Mes suprantame, kad kiemas kuria Jūsų namų jaukumą ir pridėtinę vertę.
                         </p>
-                        <p className="leading-relaxed font-light">
+                        <p className="leading-relaxed">
                             Mūsų filosofija paprasta: <strong>jokių kompromisų kokybei</strong>. Naudojame tik sertifikuotas sėklas, profesionalias laistymo sistemas ir laiko patikrintas dirvos paruošimo metodikas, kad jūsų veja džiugintų ne vienerius metus.
                         </p>
                     </div>
@@ -87,18 +87,18 @@ const About: React.FC = () => {
                                 <Award size={24} />
                             </div>
                             <div>
-                                <h4 className="font-bold text-nature-dark text-lg mb-1">Kokybės garantija</h4>
-                                <p className="text-sm text-gray-500 leading-snug">Suteikiame oficialią garantiją visiems atliktiems darbams.</p>
+                                <h4 className="font-bold text-nature-dark text-lg mb-1">Atsakomybė</h4>
+                                <p className="text-sm text-gray-500 leading-snug">Atsakome už rezultatą. Visada padedame iškilus klausimams.</p>
                             </div>
                         </div>
 
                         <div className="group flex items-start gap-4 p-5 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 hover:border-nature-green/30">
                             <div className="bg-nature-green/10 p-3 rounded-xl text-nature-green group-hover:bg-nature-green group-hover:text-white transition-colors">
-                                <Clock size={24} />
+                                <Heart size={24} />
                             </div>
                             <div>
-                                <h4 className="font-bold text-nature-dark text-lg mb-1">Tikslūs terminai</h4>
-                                <p className="text-sm text-gray-500 leading-snug">Gerbiame jūsų laiką – pradedame ir baigiame sutartu laiku.</p>
+                                <h4 className="font-bold text-nature-dark text-lg mb-1">Dėmesys detalėms</h4>
+                                <p className="text-sm text-gray-500 leading-snug">Neskubame. Dirbame kruopščiai iki geriausio rezultato.</p>
                             </div>
                         </div>
                     </div>
