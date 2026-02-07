@@ -12,6 +12,9 @@ const Header: React.FC = () => {
       setIsScrolled(window.scrollY > 20);
     };
 
+    // Check immediately on mount
+    handleScroll();
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -50,7 +53,7 @@ const Header: React.FC = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/90 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-6'
+      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${isScrolled ? 'bg-white/90 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-6'
         }`}
     >
       <div className="container mx-auto px-4 flex items-center justify-between relative">
@@ -109,28 +112,67 @@ const Header: React.FC = () => {
       </div>
 
       {/* Mobile Menu Overlay */}
-      <div className={`lg:hidden fixed inset-0 bg-white z-40 transition-transform duration-300 transform ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'
-        } pt-24 px-6 shadow-2xl`}>
-        <nav className="flex flex-col gap-6">
-          {NAV_LINKS.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              onClick={(e) => scrollToSection(e, link.href)}
-              className={`text-2xl font-serif font-bold ${activeSection === link.href.substring(1) ? 'text-nature-green' : 'text-nature-dark'
-                }`}
-            >
-              {link.name}
-            </a>
-          ))}
+      <div className={`lg:hidden fixed top-0 left-0 w-screen h-screen bg-white z-[150] overflow-y-auto transition-transform duration-300 ease-in-out transform ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}>
+
+        {/* Mobile Menu Header */}
+        <div className="sticky top-0 left-0 right-0 p-6 flex justify-between items-center bg-white/95 backdrop-blur-md border-b border-stone-100 z-10">
           <a
-            href={CONTACT_INFO.phone.href}
-            className="flex items-center justify-center gap-2 mt-8 px-6 py-4 bg-earth-brown text-white rounded-xl font-bold text-lg shadow-lg active:scale-95 transition-transform"
+            href="#home"
+            className="flex items-center gap-2 font-serif text-xl font-bold text-nature-dark"
+            onClick={() => setIsMenuOpen(false)}
           >
-            <Phone size={20} />
-            <span>{CONTACT_INFO.phone.display}</span>
+            <Leaf className="w-5 h-5 text-nature-green" />
+            Klaipėdos veja
           </a>
-        </nav>
+          <button
+            className="p-2 text-stone-500 hover:text-nature-dark transition-colors"
+            onClick={() => setIsMenuOpen(false)}
+            aria-label="Close menu"
+          >
+            <X size={28} />
+          </button>
+        </div>
+
+        {/* Mobile Navigation Links */}
+        <div className="flex flex-col items-center justify-start pt-12 pb-12 gap-8 px-6 min-h-[calc(100vh-80px)]">
+          <nav className="flex flex-col items-center gap-6 w-full">
+            {NAV_LINKS.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                onClick={(e) => scrollToSection(e, link.href)}
+                className={`text-2xl font-serif font-bold transition-colors ${activeSection === link.href.substring(1) ? 'text-nature-green' : 'text-nature-dark hover:text-nature-green'
+                  }`}
+              >
+                {link.name}
+              </a>
+            ))}
+          </nav>
+
+          <div className="w-full max-w-xs h-px bg-stone-100 my-4"></div>
+
+          {/* Mobile Footer/Contact */}
+          <div className="flex flex-col items-center gap-4 w-full mt-8">
+            <a
+              href={CONTACT_INFO.phone.href}
+              className="flex items-center justify-center gap-3 w-full max-w-xs px-6 py-4 bg-earth-brown text-white rounded-xl font-bold text-lg shadow-lg active:scale-95 transition-transform hover:bg-stone-800"
+            >
+              <Phone size={20} />
+              <span>{CONTACT_INFO.phone.display}</span>
+            </a>
+
+            <a
+              href={CONTACT_INFO.socials.facebook.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-3 w-full max-w-xs px-6 py-4 bg-white border-2 border-stone-100 text-nature-dark rounded-xl font-bold text-lg shadow-sm active:scale-95 transition-transform hover:border-nature-green hover:text-nature-green"
+            >
+              <CONTACT_INFO.socials.facebook.icon size={20} />
+              <span>Sekite mus Facebook</span>
+            </a>
+          </div>
+        </div>
       </div>
     </header>
   );

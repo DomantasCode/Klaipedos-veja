@@ -11,13 +11,13 @@ const ServiceModal: React.FC<{ service: Service; onClose: () => void }> = ({ ser
   }, []);
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-0 sm:p-6">
+    <div className="fixed inset-0 z-[200] flex items-center justify-center p-0 sm:p-6">
       <div
         className="absolute inset-0 bg-stone-950/80 backdrop-blur-sm transition-opacity"
         onClick={onClose}
       ></div>
 
-      <div className="relative w-full max-w-6xl h-full sm:h-[90vh] bg-white sm:rounded-[2rem] shadow-2xl overflow-hidden flex flex-col md:flex-row animate-fade-in-up">
+      <div className="relative w-full max-w-6xl h-[100dvh] sm:h-[90vh] bg-white sm:rounded-[2rem] shadow-2xl overflow-hidden flex flex-col md:flex-row animate-fade-in-up">
 
         {/* Left: Image Panel (40%) */}
         <div className="w-full md:w-2/5 relative h-64 md:h-auto shrink-0">
@@ -59,8 +59,26 @@ const ServiceModal: React.FC<{ service: Service; onClose: () => void }> = ({ ser
             <X size={20} className="text-gray-500" />
           </button>
 
-          {/* Scrollable Content */}
-          <div className="flex-1 overflow-y-auto p-8 md:p-12">
+          {/* Scrollable Content with visible scrollbar */}
+          <style>{`
+            /* iOS-specific scrollbar hack */
+            .custom-scrollbar::-webkit-scrollbar {
+              -webkit-appearance: none;
+              width: 8px;
+              height: 8px;
+            }
+            .custom-scrollbar::-webkit-scrollbar-track {
+              background: rgba(0, 0, 0, 0.05);
+              border-radius: 4px;
+            }
+            .custom-scrollbar::-webkit-scrollbar-thumb {
+              background-color: rgba(0, 0, 0, 0.4);
+              border-radius: 4px;
+              border: 2px solid transparent; /* Padding around thumb */
+              background-clip: content-box;
+            }
+          `}</style>
+          <div className="flex-1 overflow-y-auto p-6 md:p-12 pb-64 md:pb-12 custom-scrollbar">
 
             {/* Mobile Title (visible only on small screens) */}
             <div className="md:hidden mb-8">
@@ -112,10 +130,21 @@ const ServiceModal: React.FC<{ service: Service; onClose: () => void }> = ({ ser
               </div>
             </div>
 
+            {/* Mobile CTA (Scrollable) */}
+            <div className="md:hidden mt-8 mb-12">
+              <a
+                href={CONTACT_INFO.phone.href}
+                className={`w-full flex items-center justify-center gap-3 py-4 rounded-xl font-bold text-white shadow-lg active:scale-95 transition-transform ${service.color}`}
+              >
+                <Phone size={20} />
+                <span>Teirautis telefonu</span>
+              </a>
+            </div>
+
           </div>
 
-          {/* Sticky Footer CTA */}
-          <div className="p-8 border-t border-gray-100 bg-gray-50/50">
+          {/* Sticky Footer CTA (Desktop Only) */}
+          <div className="hidden md:block p-8 border-t border-gray-100 bg-gray-50/50">
             <a
               href={CONTACT_INFO.phone.href}
               className={`w-full flex items-center justify-center gap-3 py-4 rounded-xl font-bold text-white shadow-lg transition-transform hover:-translate-y-0.5 active:translate-y-0 ${service.color}`}
@@ -137,13 +166,13 @@ const Services: React.FC = () => {
   return (
     <>
       <div className="container mx-auto relative z-10">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-16 gap-6">
           <div className="md:w-2/3">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-nature-green/10 text-nature-green text-xs font-bold uppercase tracking-widest mb-6">
               <CheckCircle2 size={14} />
               <span>Ką mes darome</span>
             </div>
-            <h2 className="font-serif text-4xl md:text-5xl font-bold text-nature-dark leading-tight">
+            <h2 className="font-serif text-3xl md:text-5xl font-bold text-nature-dark leading-tight">
               Paslaugos, kurios kuria <br />
               <span className="text-nature-green italic">vertę jūsų namams</span>
             </h2>

@@ -5,13 +5,13 @@ const Footer: React.FC = () => {
   const { facebook } = CONTACT_INFO.socials;
 
   return (
-    <footer className="bg-nature-dark text-white pt-16 pb-8">
+    <footer className="bg-nature-dark text-white pt-12 md:pt-16 pb-8">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-8 mb-12">
 
           {/* Column 1: Brand & Socials */}
           <div className="md:col-span-2 lg:col-span-4">
-            <h3 className="font-serif text-2xl font-bold mb-6">Klaipėdos veja</h3>
+            <h3 className="font-serif text-xl md:text-2xl font-bold mb-6">Klaipėdos veja</h3>
             <p className="text-stone-400 text-sm mb-6 leading-relaxed">
               Profesionalios apželdinimo paslaugos, skirtos kurti tvarias, gražias ir funkcionalias žaliąsias erdves Klaipėdos regiono namams.
             </p>
@@ -55,8 +55,8 @@ const Footer: React.FC = () => {
 
           {/* Column 4-5: Contact Info (Split) */}
           <div className="md:col-span-2 lg:col-span-4">
-            <h4 className="font-bold text-lg mb-6 text-center">Kontaktai</h4>
-            <div className="flex flex-col sm:flex-row justify-center gap-12 text-left">
+            <h4 className="font-bold text-lg mb-6 text-left lg:text-center">Kontaktai</h4>
+            <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start lg:justify-center text-left">
               <ul className="space-y-4 text-stone-400 text-sm">
                 <li>
                   <span className="block text-white font-bold mb-1">Telefonas:</span>

@@ -62,22 +62,22 @@ const Contact: React.FC = () => {
         <div className="flex flex-col lg:flex-row gap-8 relative z-10">
 
           {/* Left Content: Info & Context */}
-          <div className="lg:w-5/12 text-center lg:text-left flex flex-col justify-center gap-10">
+          <div className="lg:w-5/12 text-left flex flex-col justify-center gap-8 md:gap-10">
             <div>
-              <h2 className="font-serif text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+              <h2 className="font-serif text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
                 Susisiekite dėl <br />
                 <span className="text-stone-300">savo projekto</span>
               </h2>
 
-              <p className="text-stone-400 text-lg leading-relaxed font-light">
+              <p className="text-stone-400 text-lg leading-relaxed font-light max-w-md">
                 Turite klausimų ar norite pasimatyti objektą gyvai? Užpildykite formą <br className="hidden md:block" /> ir mes susisieksime artimiausiu metu.
               </p>
             </div>
 
-            <div className="space-y-8 mt-16 sm:mt-24">
+            <div className="space-y-6 md:space-y-8 mt-8 md:mt-24">
               {/* Phone */}
-              <div className="flex items-start gap-4 justify-center lg:justify-start group">
-                <div className="p-3 bg-nature-green/20 rounded-2xl text-nature-light group-hover:bg-nature-green group-hover:text-white transition-colors">
+              <div className="flex items-start gap-4 justify-start group">
+                <div className="p-3 bg-nature-green/20 rounded-2xl text-nature-light group-hover:bg-nature-green group-hover:text-white transition-colors shrink-0">
                   <Phone size={24} />
                 </div>
                 <div>
@@ -89,8 +89,8 @@ const Contact: React.FC = () => {
               </div>
 
               {/* Location */}
-              <div className="flex items-start gap-4 justify-center lg:justify-start">
-                <div className="p-3 bg-white/5 rounded-2xl text-earth-brown">
+              <div className="flex items-start gap-4 justify-start">
+                <div className="p-3 bg-white/5 rounded-2xl text-earth-brown shrink-0">
                   <MapPin size={24} />
                 </div>
                 <div>
@@ -100,21 +100,21 @@ const Contact: React.FC = () => {
               </div>
 
               {/* Email */}
-              <div className="flex items-start gap-4 justify-center lg:justify-start">
-                <div className="p-3 bg-white/5 rounded-2xl text-earth-brown">
+              <div className="flex items-start gap-4 justify-start">
+                <div className="p-3 bg-white/5 rounded-2xl text-earth-brown shrink-0">
                   <Mail size={24} />
                 </div>
                 <div>
                   <h4 className="text-white font-bold text-lg">El. paštas</h4>
-                  <a href={CONTACT_INFO.email.href} className="text-stone-400 hover:text-white transition-colors block mt-1">
+                  <a href={CONTACT_INFO.email.href} className="text-stone-400 hover:text-white transition-colors block mt-1 break-all">
                     {CONTACT_INFO.email.display}
                   </a>
                 </div>
               </div>
 
               {/* Hours */}
-              <div className="flex items-start gap-4 justify-center lg:justify-start">
-                <div className="p-3 bg-white/5 rounded-2xl text-earth-brown">
+              <div className="flex items-start gap-4 justify-start">
+                <div className="p-3 bg-white/5 rounded-2xl text-earth-brown shrink-0">
                   <Calendar size={24} />
                 </div>
                 <div>

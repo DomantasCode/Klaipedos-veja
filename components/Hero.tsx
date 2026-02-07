@@ -4,7 +4,7 @@ import { CONTACT_INFO } from '../constants';
 
 const Hero: React.FC = () => {
   return (
-    <div className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
+    <div className="relative h-[92vh] md:h-screen min-h-[500px] md:min-h-[600px] flex items-center justify-center overflow-hidden">
       {/* Background Video with Overlay */}
       <div className="absolute inset-0 z-0">
         <video
@@ -26,18 +26,18 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Content */}
-      <div className="container mx-auto relative z-10 text-center text-white">
+      <div className="container mx-auto relative z-10 text-center text-white px-4">
         <div className="animate-fade-in-up">
           <span className="inline-block px-4 py-2 mb-6 border border-white/30 rounded-full text-xs font-bold tracking-widest uppercase bg-white/10 backdrop-blur-md">
             Dirbame Klaipėdos regione
           </span>
-          <h1 className="font-serif text-5xl md:text-7xl font-bold leading-tight mb-6 drop-shadow-lg">
+          <h1 className="font-serif text-4xl md:text-7xl font-bold leading-tight mb-6 drop-shadow-lg">
             Vejos įrengimas ir <br />
             <span className="text-nature-light">laistymo sistemos</span>
           </h1>
 
           {/* Reduced max-width to max-w-lg to make lines shorter as requested */}
-          <p className="text-lg md:text-xl text-stone-200 max-w-lg mx-auto mb-10 leading-relaxed font-light">
+          <p className="text-lg md:text-xl text-stone-200 max-w-lg mx-auto mb-8 md:mb-10 leading-relaxed font-light">
             Užtikriname kokybę ir ilgaamžį rezultatą, o kartu teikiame ir priežiūros bei dekoratyvinio apželdinimo paslaugas.
           </p>
 
@@ -60,9 +60,11 @@ const Hero: React.FC = () => {
         </div>
       </div>
 
-      {/* Scroll Down Indicator - Changed to Arrow */}
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <ArrowRight className="rotate-90 text-white/70" size={32} />
+      {/* Scroll Down Indicator - Hidden on Mobile */}
+      <div className="hidden md:block absolute bottom-12 left-1/2 -translate-x-1/2 z-20">
+        <div className="animate-bounce">
+          <ArrowRight className="rotate-90 text-white/70" size={32} />
+        </div>
       </div>
     </div>
   );

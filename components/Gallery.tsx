@@ -45,12 +45,12 @@ const BeforeAfterCard: React.FC<{ before: string; after: string; alt: string }> 
 const Gallery: React.FC = () => {
   return (
     <div className="container mx-auto px-4 py-12">
-      <div className="text-center mb-20">
+      <div className="text-center mb-12 md:mb-20">
         <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-nature-green/5 border border-nature-green/10 text-nature-green text-xs font-bold uppercase tracking-widest mb-6">
           <ImageIcon size={14} />
           <span>Atlikti Darbai</span>
         </div>
-        <h2 className="font-serif text-4xl md:text-6xl font-bold text-nature-dark mb-6 leading-tight">
+        <h2 className="font-serif text-3xl md:text-6xl font-bold text-nature-dark mb-6 leading-tight">
           Pokyčiai, kurie <span className="text-nature-green italic">įkvepia</span>
         </h2>
         <p className="text-gray-500 text-lg max-w-2xl mx-auto leading-relaxed font-light">
