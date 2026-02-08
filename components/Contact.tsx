@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { Phone, MapPin, Calendar, Send, Upload, X, CheckCircle, Loader2, Mail } from 'lucide-react';
 import { CONTACT_INFO } from '../constants';
+import { SlideUp, FadeIn, StaggerContainer, StaggerItem } from './Animators';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -63,18 +64,18 @@ const Contact: React.FC = () => {
 
           {/* Left Content: Info & Context */}
           <div className="lg:w-5/12 text-left flex flex-col justify-center gap-8 md:gap-10">
-            <div>
+            <SlideUp>
               <h2 className="font-serif text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
                 Susisiekite dėl <br />
                 <span className="text-stone-300">savo projekto</span>
               </h2>
 
               <p className="text-stone-400 text-lg leading-relaxed font-light max-w-md">
-                Turite klausimų ar norite pasimatyti objektą gyvai? Užpildykite formą <br className="hidden md:block" /> ir mes susisieksime artimiausiu metu.
+                Turite klausimų Užpildykite formą <br className="hidden md:block" /> ir mes susisieksime artimiausiu metu.
               </p>
-            </div>
+            </SlideUp>
 
-            <div className="space-y-6 md:space-y-8 mt-8 md:mt-24">
+            <SlideUp delay={0.2} className="space-y-6 md:space-y-8 mt-8 md:mt-24">
               {/* Phone */}
               <div className="flex items-start gap-4 justify-start group">
                 <div className="p-3 bg-nature-green/20 rounded-2xl text-nature-light group-hover:bg-nature-green group-hover:text-white transition-colors shrink-0">
@@ -122,11 +123,11 @@ const Contact: React.FC = () => {
                   <p className="text-stone-400 mt-1">{CONTACT_INFO.hours.text}</p>
                 </div>
               </div>
-            </div>
+            </SlideUp>
           </div>
 
           {/* Right Content: Dynamic Form */}
-          <div className="lg:w-7/12 bg-white rounded-[2rem] p-8 md:p-10 text-gray-800 shadow-2xl relative z-20">
+          <FadeIn delay={0.4} className="lg:w-7/12 bg-white rounded-[2rem] p-8 md:p-10 text-gray-800 shadow-2xl relative z-20">
             {status === 'success' ? (
               <div className="h-full flex flex-col items-center justify-center text-center py-20">
                 <div className="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-6 animate-bounce">
@@ -267,7 +268,7 @@ const Contact: React.FC = () => {
                 </button>
               </form>
             )}
-          </div>
+          </FadeIn>
         </div>
       </div>
     </div>

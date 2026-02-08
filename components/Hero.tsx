@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowRight, Phone } from 'lucide-react';
 import { CONTACT_INFO } from '../constants';
 
+
 const Hero: React.FC = () => {
   return (
     <div className="relative h-[92vh] md:h-screen min-h-[500px] md:min-h-[600px] flex items-center justify-center overflow-hidden">
@@ -12,6 +13,8 @@ const Hero: React.FC = () => {
           loop
           muted
           playsInline
+          preload="auto"
+          poster="/hero-lawn.png"
           className="w-full h-full object-cover scale-125"
         >
           <source src="/Cinematic_Soil_Leveling_Video_Generation.mp4" type="video/mp4" />
@@ -27,10 +30,11 @@ const Hero: React.FC = () => {
 
       {/* Content */}
       <div className="container mx-auto relative z-10 text-center text-white px-4">
-        <div className="animate-fade-in-up">
+        <div className="relative z-10">
           <span className="inline-block px-4 py-2 mb-6 border border-white/30 rounded-full text-xs font-bold tracking-widest uppercase bg-white/10 backdrop-blur-md">
             Dirbame Klaipėdos regione
           </span>
+
           <h1 className="font-serif text-4xl md:text-7xl font-bold leading-tight mb-6 drop-shadow-lg">
             Vejos įrengimas ir <br />
             <span className="text-nature-light">laistymo sistemos</span>
