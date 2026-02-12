@@ -14,7 +14,7 @@ const Hero: React.FC = () => {
           muted
           playsInline
           preload="auto"
-          poster="/hero-lawn.png"
+          poster="/hero-bg.mp4"
           className="w-full h-full object-cover scale-125"
         >
           <source src="/hero-bg.mp4?v=2.0" type="video/mp4" />
