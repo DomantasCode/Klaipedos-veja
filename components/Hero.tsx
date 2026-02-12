@@ -4,38 +4,60 @@ import { CONTACT_INFO } from '../constants';
 
 
 const Hero: React.FC = () => {
+  const videoRef = React.useRef<HTMLVideoElement>(null);
+
+  React.useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 1.0;
+      videoRef.current.play().catch((error) => {
+        console.log("Autoplay prevented:", error);
+      });
+    }
+  }, []);
+
   return (
     <div className="relative h-[92vh] md:h-screen min-h-[500px] md:min-h-[600px] flex items-center justify-center overflow-hidden">
       {/* Background Video with Overlay */}
       <div className="absolute inset-0 z-0">
-        <style>
-          {`
-            video::-webkit-media-controls {
-              display: none !important;
-            }
-            video::-webkit-media-controls-start-playback-button {
-              display: none !important;
-            }
-          `}
-        </style>
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          poster="/hero-lawn.png"
-          className="w-full h-full object-cover scale-125 pointer-events-none"
-        >
-          <source src="/hero-bg.mp4?v=2.0" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        {/* Mobile Background Image */}
+        <div className="absolute inset-0 block md:hidden">
+          <img
+            src="/hero-poster.jpg"
+            alt="Hero Background Frame"
+            className="w-full h-full object-cover"
+          />
+        </div>
+
+        {/* Desktop Video Background */}
+        <div className="absolute inset-0 hidden md:block">
+          <style>
+            {`
+              video::-webkit-media-controls {
+                display: none !important;
+              }
+              video::-webkit-media-controls-start-playback-button {
+                display: none !important;
+              }
+            `}
+          </style>
+          <video
+            ref={videoRef}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            className="w-full h-full object-cover scale-125"
+          >
+            <source src="/hero-bg.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
 
         {/* Dark Overlay for Text Readability */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-nature-dark/90"></div>
 
-        {/* Subtle texture overlay */}
-        <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] mix-blend-overlay"></div>
+
       </div>
 
       {/* Content */}
