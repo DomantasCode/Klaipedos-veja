@@ -8,14 +8,24 @@ const Hero: React.FC = () => {
     <div className="relative h-[92vh] md:h-screen min-h-[500px] md:min-h-[600px] flex items-center justify-center overflow-hidden">
       {/* Background Video with Overlay */}
       <div className="absolute inset-0 z-0">
+        <style>
+          {`
+            video::-webkit-media-controls {
+              display: none !important;
+            }
+            video::-webkit-media-controls-start-playback-button {
+              display: none !important;
+            }
+          `}
+        </style>
         <video
           autoPlay
           loop
           muted
           playsInline
           preload="auto"
-          poster="/hero-bg.mp4"
-          className="w-full h-full object-cover scale-125"
+          poster="/hero-lawn.png"
+          className="w-full h-full object-cover scale-125 pointer-events-none"
         >
           <source src="/hero-bg.mp4?v=2.0" type="video/mp4" />
           Your browser does not support the video tag.
