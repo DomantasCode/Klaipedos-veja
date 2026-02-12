@@ -1,4 +1,4 @@
-import { ReactElement } from 'react';
+import { ReactElement, ReactNode } from 'react';
 
 export interface Service {
     id: string;
@@ -25,5 +25,5 @@ export interface Project {
 
 export interface FAQItem {
     question: string;
-    answer: string;
+    answer: string | ReactNode;
 }

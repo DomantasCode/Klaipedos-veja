@@ -17,7 +17,7 @@ const Hero: React.FC = () => {
           poster="/hero-lawn.png"
           className="w-full h-full object-cover scale-125"
         >
-          <source src="/Cinematic_Soil_Leveling_Video_Generation.mp4" type="video/mp4" />
+          <source src="/hero-bg.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
 
@@ -31,9 +31,7 @@ const Hero: React.FC = () => {
       {/* Content */}
       <div className="container mx-auto relative z-10 text-center text-white px-4">
         <div className="relative z-10">
-          <span className="inline-block px-4 py-2 mb-6 border border-white/30 rounded-full text-xs font-bold tracking-widest uppercase bg-white/10 backdrop-blur-md">
-            Dirbame Klaipėdos regione
-          </span>
+
 
           <h1 className="font-serif text-4xl md:text-7xl font-bold leading-tight mb-6 drop-shadow-lg">
             Vejos įrengimas ir <br />
@@ -42,7 +40,7 @@ const Hero: React.FC = () => {
 
           {/* Reduced max-width to max-w-lg to make lines shorter as requested */}
           <p className="text-lg md:text-xl text-stone-200 max-w-lg mx-auto mb-8 md:mb-10 leading-relaxed font-light">
-            Užtikriname kokybę ir ilgaamžį rezultatą, o kartu teikiame ir priežiūros bei dekoratyvinio apželdinimo paslaugas.
+            10+ metų patirties dėka užtikriname kokybę ir ilgaamžį rezultatą.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">

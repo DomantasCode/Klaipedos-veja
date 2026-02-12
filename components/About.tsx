@@ -27,7 +27,7 @@ const About: React.FC = () => {
                     {/* Secondary Floating Image */}
                     <div className="absolute -bottom-12 -right-12 w-48 h-48 md:w-64 md:h-64 rounded-[2rem] overflow-hidden border-[8px] border-stone-50 shadow-xl z-20 hidden md:block">
                         <img
-                            src="/about-detail-pro.png"
+                            src="/about-detail-pro.JPG"
                             alt="Green Grass Detail"
                             className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-700"
                         />

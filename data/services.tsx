@@ -10,7 +10,7 @@ import { Service } from '../types';
 // BUT, to keep refactor safe and simple, I will move data to a .tsx file so it can hold JSX.
 
 import React from 'react';
-import { Droplets, Leaf, Scissors, Bot, Phone } from 'lucide-react';
+import { Droplets, Leaf, Scissors, Bot, Phone, Lightbulb } from 'lucide-react';
 
 const SproutIcon = () => (
     <svg
@@ -36,16 +36,18 @@ export const services: Service[] = [
         id: '01',
         icon: <SproutIcon />,
         title: 'Vejos įrengimas',
-        description: 'Profesionalus vejos įrengimas sėjimo būdu. Ilgametė patirtis, kruopštus rankinis darbas ir dėmesys detalėms.',
+        description: 'Profesionalus vejos įrengimas, ilgametė patirtis, kruopštus darbas ir dėmesys detalėms.',
         features: ['Sėklų parinkimas', 'Rankinis lyginimas'],
         color: 'bg-nature-green',
         textColor: 'text-nature-green',
-        fullDescription: 'Veją įrengiame taip, kaip darytume sau – kruopščiai ir be skubos. Nenaudojame sunkios technikos, kuri suspaudžia žemę – viską lyginame rankomis. Tai leidžia idealiai paruošti pagrindą ir išrinkti visus akmenukus. Piktžoles išnaikiname dar prieš sėjimą, todėl veja auga švari. Darbus užbaigiame uždengdami sklypą agroplėvele – taip sėklos gauna drėgmės ir greičiau sudygsta.',
+        fullDescription: 'Vejos įrengimo darbus atliekame atsakingai, vadovaudamiesi gerąja praktika ir siekdami ilgalaikio rezultato. Pirmiausia įvertiname sklypo reljefą, o esant poreikiui papildomai atvežame ir paskleidžiame gruntą. Dirvožemį išlyginame, suformuojame reikiamus nuolydžius ir paruošiame plotą sėjai. Frezavimo metu dirva supurenama 10–15 cm gylyje, kad būtų sudarytos palankios sąlygos vejos šaknų vystymuisi. Taip pat maksimaliai pašalinamos nereikalingos priemaišos, kurios gali trukdyti kokybiškam vejos įsitvirtinimui. Baigus pagrindinius darbus, sėjos plotas gali būti uždengiamas agroplėvele arba padengiamas durpių sluoksniu — tai padeda geriau išlaikyti drėgmę ir užtikrina greitesnį sėklų sudygimą. Esant poreikiui, vėlesniuose priežiūros etapuose gali būti taikomos papildomos priemonės piktžolių kontrolei, siekiant dar estetiškesnio ir tvarkingesnio vejos vaizdo.',
         process: [
-            { title: 'Pagrindas', desc: 'Juodžemio atvežimas (jei reikia) ir kruopštus rankinis lyginimas.' },
-            { title: 'Prevencija', desc: 'Leidžiame piktžolėms sudygti ir jas sunaikiname – tai garantuoja švaresnę veją.' },
-            { title: 'Sėjimas', desc: 'Sertifikuotų sėklų įterpimas, startinis tręšimas.' },
-            { title: 'Apsauga', desc: 'Volavimas ir uždengimas agroplėvele optimaliam mikroklimatui.' }
+            { title: 'Pagrindo paruošimas', desc: 'Juodžemio atvežimas ir tolygus paskirstymas sklype.' },
+            { title: 'Frezavimas', desc: 'Grunto supurenimas ir nereikalingų priemaišų pašalinimas.' },
+            { title: 'Lyginimas', desc: 'Sklypo išlyginimas ir nuolydžių suformavimas.' },
+            { title: 'Sėjimas', desc: 'Sertifikuotų sėklų įterpimas ir startinis tręšimas.' },
+            { title: 'Apsauga', desc: 'Volavimas ir uždengimas agroplėvele arba durpių sluoksniu greitesniam sudygimui.' },
+            { title: 'Prevencija', desc: 'Esant didesniam piktžolių kiekiui, taikomas herbicidinis apdorojimas.' }
         ],
         image: "/service-installation.png",
     },
@@ -53,16 +55,17 @@ export const services: Service[] = [
         id: '02',
         icon: <Droplets className="w-8 h-8" />,
         title: 'Laistymo sistemos',
-        description: 'Pamirškite varginantį laistymą žarna. Įrengiame sistemas, kurios pačios pasirūpina jūsų veja.',
+        description: 'Automatizuotos laistymo sistemos įrengimas, palaikantis optimalų vejos drėgmės lygį.',
         features: ['Automatinis valdymas', 'Lietaus jutikliai', 'Patikima įranga'],
         color: 'bg-blue-600',
         textColor: 'text-blue-600',
-        fullDescription: 'Automatinė laistymo sistema – tai ne prabanga, o būtinybė norint turėti žalią veją be vargo. Jums nebereikės kiekvieną vakarą tampyti žarnų – sistema pasileis pati geriausiu laiku. Naudojame tik aukščiausios klasės įrangą, kuri tarnauja metus. Sumontuojame lietaus jutiklius, todėl per lietų sistema veltui neveiks ir taupys vandenį.',
+        fullDescription: 'Automatinė laistymo sistema – tai praktiškas sprendimas, užtikrinantis nuolat žalią veją bei augalų drėkinimą be papildomų pastangų. Sistema veikia automatiškai, parinkdama optimalų laistymo laiką ir vandens kiekį, todėl nebereikia rūpintis kasdieniu rankiniu laistymu. Įrengimui naudojame tik aukštos kokybės, ilgaamžę įrangą, o išmanieji valdikliai leidžia efektyviai valdyti vandens sąnaudas ir prisitaikyti prie oro sąlygų. Tai patikimas ir patogus sprendimas tiek mažiems kiemams, tiek didesniems sklypams.',
         process: [
-            { title: 'Projektas', desc: 'Suplanuojame purkštukų vietas, kad visa veja būtų palaistyta tolygiai.' },
-            { title: 'Įrengimas', desc: 'Iškasame griovelius, klojame vamzdžius ir montuojame purkštukus.' },
-            { title: 'Pajungimas', desc: 'Pajungiame valdiklį ir viską sureguliuojame.' },
-            { title: 'Apmokymas', desc: 'Parodome, kaip sistema veikia ir kaip ją valdyti.' }
+            { title: 'Įvertinimas', desc: 'Laistymo poreikių ir sklypo zonų įvertinimas.' },
+            { title: 'Planavimas', desc: 'Sistemos suplanavimas ir įrangos parinkimas.' },
+            { title: 'Įrengimas', desc: 'Vamzdynų ir purkštukų įrengimas.' },
+            { title: 'Montavimas', desc: 'Valdiklių montavimas ir sistemos paleidimas.' },
+            { title: 'Patikra', desc: 'Darbo patikra bei reguliavimas optimaliam veikimui.' }
         ],
         image: "/service-irrigation.png",
     },
@@ -70,17 +73,17 @@ export const services: Service[] = [
         id: '03',
         icon: <Scissors className="w-8 h-8" />,
         title: 'Vejos priežiūra',
-        description: 'Pilna vejos priežiūra: nuo pjovimo iki tręšimo. Jums belieka tik džiaugtis gražiu kiemu.',
+        description: 'Vejos priežiūra – nuo pjovimo iki tręšimo.',
         features: ['Tręšimas', 'Aeravimas', 'Skarifikavimas'],
         color: 'bg-stone-800',
         textColor: 'text-stone-800',
-        fullDescription: 'Graži veja reikalauja nuolatinio dėmesio, ne tik pjovimo. Mes pasirūpiname viskuo – nuo reguliaraus žolės pjovimo iki tręšimo ir aeravimo. Darome visus darbus, kad jūsų veja būtų tanki, žalia ir sveika, o jums nereikėtų vargti su technika ar gaišti laiko.',
+        fullDescription: 'Graži ir sveika veja reikalauja nuolatinės priežiūros – ne tik reguliaraus pjovimo. Mes pasirūpiname visais svarbiausiais darbais: nuo žolės pjovimo iki tręšimo, piktžolių kontrolės, aeravimo ar skarifikavimo. Dirbame tam, kad jūsų veja būtų tanki, sodriai žalia ir atspari, o jūs galėtumėte mėgautis rezultatu be papildomų rūpesčių.',
         processTitle: 'Paslaugos',
         process: [
-            { title: 'Žolės pjovimas', desc: 'Atvažiuojame ir tvarkingai nupjauname veją jums patogiu metu.' },
-            { title: 'Skarifikavimas', desc: 'Iššukuojame seną žolę ir samanas, kad veja atsigautų.' },
-            { title: 'Aeravimas', desc: 'Subadome veją, kad šaknys gautų oro ir geriau augtų.' },
-            { title: 'Tręšimas', desc: 'Pabarstome trąšų, kad žolė būtų stipri ir ryškiai žalia.' }
+            { title: 'Skarifikavimas', desc: 'Specialia technika pašaliname seną, negyvą žolę ir samanas, kad veja galėtų geriau kvėpuoti ir tankiau augti.' },
+            { title: 'Tręšimas', desc: 'Tolygiai paskleidžiame trąšas, užtikrinančias sodrią spalvą, stipresnį augimą bei vejos atsparumą.' },
+            { title: 'Piktžolių naikinimas', desc: 'Tinkamų herbicidų panaudojimas piktžolių pašalinimui iš vejos.' },
+            { title: 'Aeravimas + „levelingas“', desc: 'Atliekame „core“ aeraciją, o susidariusias ertmes užpildome smėliu. Tai pagerina dirvos struktūrą, šaknų būklę, drėgmės įsisavinimą ir padeda išlyginti nedidelius nelygumus.' }
         ],
         image: "/service-maintenance-ref.png"
     },
@@ -88,18 +91,35 @@ export const services: Service[] = [
         id: '04',
         icon: <Leaf className="w-8 h-8" />,
         title: 'Dekoratyvinis Apželdinimas',
-        description: 'Suteikite savo kiemui charakterį. Augalai, akmenukai ir teisingas zonavimas.',
+        description: 'Estetiškos erdvės sukūrimas derinant augalus bei dekoratyvinę skaldą.',
         features: ['Augalų sodinimas', 'Dekoratyviniai akmenukai', 'Mulčiavimas'],
         color: 'bg-emerald-600',
         textColor: 'text-emerald-600',
-        fullDescription: 'Jaukus kiemas – tai ne tik lygi veja. Suteikiame sklypui gyvybės: sodiname tujas ir dekoratyvinius augalus, formuojame zonas skalda ar akmenukais. Padedame parinkti augalus, kurie prigis jūsų dirvožemyje, ir sukuriame vaizdą, kuris džiugins visus metus.',
-        processTitle: 'Paslaugos',
+        fullDescription: 'Jaukus ir estetiškas kiemas – tai ne tik veja. Mes atliekame sklypo dekoratyvinio apželdinimo darbus: sodiname dekoratyvinius augalus, formuojame zonas skalda ar mulčiu, atrenkame augalus, atsižvelgdami į sklypo dirvožemio savybes bei vietos sąlygas, tokias kaip saulės apšvietimas, pavėsis ir bendras mikroklimatas.',
+        processTitle: 'Darbai',
         process: [
-            { title: 'Apželdinimas', desc: 'Tujų, medžių ir dekoratyvinių augalų sodinimas.' },
-            { title: 'Akmenukai', desc: 'Dekoratyvinės skaldos ir akmenukų klojimas.' },
+            { title: 'Apželdinimas', desc: 'Medžių ir dekoratyvinių augalų sodinimas.' },
+            { title: 'Skalda', desc: 'Dekoratyvinės skaldos, akmenukų ar trinkelių įrengimas augalų zonose.' },
             { title: 'Zonavimas', desc: 'Gėlynų atskyrimas borteliais ir formavimas.' },
             { title: 'Mulčiavimas', desc: 'Mulčio pylimas drėgmei išsaugoti ir piktžolėms sulaikyti.' }
         ],
         image: "/service-landscaping.png"
+    },
+    {
+        id: '05',
+        icon: <Lightbulb className="w-8 h-8" />,
+        title: 'Kiemo apšvietimas',
+        description: 'Kiemo apšvietimo sistemų įrengimas, užtikrinantis saugumą bei jaukumą.',
+        features: ['Projektavimas', 'LED sistemos', 'Automatika'],
+        color: 'bg-amber-500',
+        textColor: 'text-amber-500',
+        fullDescription: 'Tinkamai įrengtas kiemo apšvietimas suteikia erdvei jaukumo, užtikrina saugumą bei komfortą.',
+        processTitle: 'Darbų eiga',
+        process: [
+            { title: 'Projektavimas', desc: 'Aptariame ir suplanuojame šviestuvų išdėstymą pagal sklypo charakteristikas ir kliento pageidavimus.' },
+            { title: 'Instaliacija', desc: 'Paklojame kabelius po žeme, prijungiame šviestuvus ir užtikriname tinkamą jų veikimą.' },
+            { title: 'Sistemos paleidimas', desc: 'Integruojame valdymo ir automatikos modulius, kad apšvietimas veiktų pagal nustatytą grafiką, automatiškai įsijungtų sutemus ir išsijungtų prašvitus.' }
+        ],
+        image: "/service-lighting.png"
     },
 ];

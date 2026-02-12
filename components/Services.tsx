@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Phone, CheckCircle2, ArrowUpRight, X, Bot } from 'lucide-react';
+import { Phone, CheckCircle2, ArrowUpRight, X } from 'lucide-react';
 import { services } from '../data/services';
 import { Service } from '../types';
 import { CONTACT_INFO } from '../constants';
-import { SlideUp, StaggerContainer, StaggerItem, FadeIn } from './Animators';
+import { SlideUp, StaggerContainer, StaggerItem } from './Animators';
 
 const ServiceModal: React.FC<{ service: Service; onClose: () => void }> = ({ service, onClose }) => {
   useEffect(() => {
@@ -98,14 +98,7 @@ const ServiceModal: React.FC<{ service: Service; onClose: () => void }> = ({ ser
               </p>
             </div>
 
-            {/* Features (Tags) */}
-            <div className="flex flex-wrap gap-3 mb-12">
-              {service.features.map((feature, i) => (
-                <span key={i} className="px-3 py-1 bg-white border border-stone-200 rounded-full text-xs font-bold uppercase tracking-wider text-stone-600 shadow-sm">
-                  {feature}
-                </span>
-              ))}
-            </div>
+
 
             {/* Process / Services List */}
             <div className="mb-12">
@@ -180,20 +173,14 @@ const Services: React.FC = () => {
               </h2>
             </SlideUp>
           </div>
-          <div className="md:w-1/3 text-right hidden md:block">
-            <FadeIn delay={0.3}>
-              <p className="text-gray-600 text-base max-w-sm ml-auto leading-relaxed">
-                Visapusiški sprendimai Jūsų kiemui. Nuo vejos įrengimo ir laistymo sistemų iki apželdinimo bei nuolatinės priežiūros.
-              </p>
-            </FadeIn>
-          </div>
+
         </div>
 
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <StaggerContainer className="flex flex-wrap justify-center gap-8">
           {services.map((service, index) => (
             <StaggerItem
               key={index}
-              className="h-full"
+              className="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.333rem)]"
             >
               <div
                 onClick={() => setSelectedService(service)}
@@ -228,13 +215,7 @@ const Services: React.FC = () => {
 
                   <div className="mt-auto">
                     {/* Feature Tags */}
-                    <div className="flex flex-wrap gap-2 mb-6">
-                      {service.features.slice(0, service.id === '03' ? 3 : 2).map((feature, i) => (
-                        <span key={i} className="px-3 py-1 bg-white border border-stone-200 rounded-md text-[10px] font-bold uppercase tracking-wider text-stone-500 shadow-sm group-hover:border-nature-green/30 group-hover:text-nature-green transition-all">
-                          {feature}
-                        </span>
-                      ))}
-                    </div>
+
 
                     {/* Bottom Action */}
                     <div className="flex items-center justify-between pt-6 border-t border-stone-100">
@@ -252,38 +233,7 @@ const Services: React.FC = () => {
           ))}
         </StaggerContainer>
 
-        {/* Robot Installation Partner Section - Compact Version */}
-        <div className="mt-12 max-w-2xl mx-auto">
-          <SlideUp delay={0.4}>
-            <div className="bg-stone-50 rounded-2xl p-6 flex flex-col md:flex-row items-center gap-6 border border-stone-100 group hover:shadow-lg transition-all duration-300">
 
-              {/* Icon */}
-              <div className="w-12 h-12 bg-white rounded-full flex-shrink-0 flex items-center justify-center shadow-sm text-stone-600">
-                <Bot size={24} />
-              </div>
-
-              {/* Text Content */}
-              <div className="flex-1 text-center md:text-left">
-                <h3 className="font-serif text-lg font-bold text-gray-800 mb-1">
-                  Planuojate įsigyti vejos robotą?
-                </h3>
-                <p className="text-sm text-gray-500 leading-relaxed">
-                  Profesionalus parinkimas ir instaliavimas.
-                </p>
-              </div>
-
-              {/* Contact - Compact */}
-              <div className="flex flex-col items-center md:items-end gap-1 flex-shrink-0 border-t md:border-t-0 md:border-l border-stone-200 pt-4 md:pt-0 md:pl-6 w-full md:w-auto">
-                <span className="text-[10px] font-bold uppercase tracking-widest text-stone-400">Meistro kontaktai</span>
-                <a href={CONTACT_INFO.phone.href} className="flex items-center gap-2 text-nature-green font-bold hover:text-nature-green transition-colors text-base">
-                  <Phone size={16} />
-                  {CONTACT_INFO.phone.display}
-                </a>
-              </div>
-
-            </div>
-          </SlideUp>
-        </div>
       </div>
 
       {selectedService && (

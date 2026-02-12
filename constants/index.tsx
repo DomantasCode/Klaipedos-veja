@@ -27,7 +27,7 @@ export const CONTACT_INFO = {
 export const NAV_LINKS = [
     { name: 'Paslaugos', href: '#services' },
     { name: 'Apie mus', href: '#about' },
-    { name: 'Darbai', href: '#gallery' },
+    { name: 'Darbų galerija', href: '#gallery' },
     { name: 'D.U.K', href: '#faq' },
     { name: 'Kontaktai', href: '#contact' },
 ];
