@@ -40,7 +40,7 @@ export const services: Service[] = [
         features: ['Sėklų parinkimas', 'Rankinis lyginimas'],
         color: 'bg-nature-green',
         textColor: 'text-nature-green',
-        fullDescription: 'Vejos įrengimo darbus atliekame atsakingai, vadovaudamiesi gerąja praktika ir siekdami ilgalaikio rezultato. Pirmiausia įvertiname sklypo reljefą, o esant poreikiui papildomai atvežame ir paskleidžiame gruntą. Dirvožemį išlyginame, suformuojame reikiamus nuolydžius ir paruošiame plotą sėjai. Frezavimo metu dirva supurenama 10–15 cm gylyje, kad būtų sudarytos palankios sąlygos vejos šaknų vystymuisi. Taip pat maksimaliai pašalinamos nereikalingos priemaišos, kurios gali trukdyti kokybiškam vejos įsitvirtinimui. Baigus pagrindinius darbus, sėjos plotas gali būti uždengiamas agroplėvele arba padengiamas durpių sluoksniu — tai padeda geriau išlaikyti drėgmę ir užtikrina greitesnį sėklų sudygimą. Esant poreikiui, vėlesniuose priežiūros etapuose gali būti taikomos papildomos priemonės piktžolių kontrolei, siekiant dar estetiškesnio ir tvarkingesnio vejos vaizdo.',
+        fullDescription: 'Vejos įrengimo darbus atliekame atsakingai, vadovaudamiesi gerąja praktika ir siekdami ilgalaikio rezultato. Pirmiausia įvertiname sklypo reljefą, o esant poreikiui papildomai atvežame ir paskleidžiame gruntą. Dirvožemį išlyginame, suformuojame reikiamus nuolydžius ir paruošiame plotą sėjai.\n\nFrezavimo metu dirva supurenama 10–15 cm gylyje, kad būtų sudarytos palankios sąlygos vejos šaknų vystymuisi. Taip pat maksimaliai pašalinamos nereikalingos priemaišos, kurios gali trukdyti kokybiškam vejos įsitvirtinimui.\n\nBaigus pagrindinius darbus, sėjos plotas gali būti uždengiamas agroplėvele arba padengiamas durpių sluoksniu — tai padeda geriau išlaikyti drėgmę ir užtikrina greitesnį sėklų sudygimą.\n\nEsant poreikiui, vėlesniuose priežiūros etapuose gali būti taikomos papildomos priemonės piktžolių kontrolei, siekiant dar estetiškesnio ir tvarkingesnio vejos vaizdo.',
         process: [
             { title: 'Pagrindo paruošimas', desc: 'Juodžemio atvežimas ir tolygus paskirstymas sklype.' },
             { title: 'Frezavimas', desc: 'Grunto supurenimas ir nereikalingų priemaišų pašalinimas.' },
@@ -59,7 +59,7 @@ export const services: Service[] = [
         features: ['Automatinis valdymas', 'Lietaus jutikliai', 'Patikima įranga'],
         color: 'bg-blue-600',
         textColor: 'text-blue-600',
-        fullDescription: 'Automatinė laistymo sistema – tai praktiškas sprendimas, užtikrinantis nuolat žalią veją bei augalų drėkinimą be papildomų pastangų. Sistema veikia automatiškai, parinkdama optimalų laistymo laiką ir vandens kiekį, todėl nebereikia rūpintis kasdieniu rankiniu laistymu. Įrengimui naudojame tik aukštos kokybės, ilgaamžę įrangą, o išmanieji valdikliai leidžia efektyviai valdyti vandens sąnaudas ir prisitaikyti prie oro sąlygų. Tai patikimas ir patogus sprendimas tiek mažiems kiemams, tiek didesniems sklypams.',
+        fullDescription: 'Automatinė laistymo sistema – tai praktiškas sprendimas, užtikrinantis nuolat žalią veją bei augalų drėkinimą be papildomų pastangų. Sistema veikia automatiškai, parinkdama optimalų laistymo laiką ir vandens kiekį, todėl nebereikia rūpintis kasdieniu rankiniu laistymu.\n\nĮrengimui naudojame tik aukštos kokybės, ilgaamžę įrangą, o išmanieji valdikliai leidžia efektyviai valdyti vandens sąnaudas ir prisitaikyti prie oro sąlygų. Tai patikimas ir patogus sprendimas tiek mažiems kiemams, tiek didesniems sklypams.',
         process: [
             { title: 'Įvertinimas', desc: 'Laistymo poreikių ir sklypo zonų įvertinimas.' },
             { title: 'Planavimas', desc: 'Sistemos suplanavimas ir įrangos parinkimas.' },
@@ -77,7 +77,7 @@ export const services: Service[] = [
         features: ['Tręšimas', 'Aeravimas', 'Skarifikavimas'],
         color: 'bg-stone-800',
         textColor: 'text-stone-800',
-        fullDescription: 'Graži ir sveika veja reikalauja nuolatinės priežiūros – ne tik reguliaraus pjovimo. Mes pasirūpiname visais svarbiausiais darbais: nuo žolės pjovimo iki tręšimo, piktžolių kontrolės, aeravimo ar skarifikavimo. Dirbame tam, kad jūsų veja būtų tanki, sodriai žalia ir atspari, o jūs galėtumėte mėgautis rezultatu be papildomų rūpesčių.',
+        fullDescription: 'Graži ir sveika veja reikalauja nuolatinės priežiūros – ne tik reguliaraus pjovimo. Mes pasirūpiname visais svarbiausiais darbais: nuo žolės pjovimo iki tręšimo, piktžolių kontrolės, aeravimo ar skarifikavimo.\n\nDirbame tam, kad jūsų veja būtų tanki, sodriai žalia ir atspari, o jūs galėtumėte mėgautis rezultatu be papildomų rūpesčių.',
         processTitle: 'Paslaugos',
         process: [
             { title: 'Skarifikavimas', desc: 'Specialia technika pašaliname seną, negyvą žolę ir samanas, kad veja galėtų geriau kvėpuoti ir tankiau augti.' },
@@ -120,6 +120,6 @@ export const services: Service[] = [
             { title: 'Instaliacija', desc: 'Paklojame kabelius po žeme, prijungiame šviestuvus ir užtikriname tinkamą jų veikimą.' },
             { title: 'Sistemos paleidimas', desc: 'Integruojame valdymo ir automatikos modulius, kad apšvietimas veiktų pagal nustatytą grafiką, automatiškai įsijungtų sutemus ir išsijungtų prašvitus.' }
         ],
-        image: "/service-lighting.png"
+        image: "/service-lighting-lithuanian.png"
     },
 ];

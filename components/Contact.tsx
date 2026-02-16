@@ -71,7 +71,7 @@ const Contact: React.FC = () => {
               </h2>
 
               <p className="text-stone-400 text-lg leading-relaxed font-light max-w-md">
-                Turite klausimų Užpildykite formą <br className="hidden md:block" /> ir mes susisieksime artimiausiu metu.
+                Turite klausimų? Užpildykite formą <br className="hidden md:block" /> ir mes susisieksime artimiausiu metu.
               </p>
             </SlideUp>
 

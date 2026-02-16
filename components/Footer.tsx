@@ -13,7 +13,7 @@ const Footer: React.FC = () => {
           <div className="md:col-span-2 lg:col-span-4">
             <h3 className="font-serif text-xl md:text-2xl font-bold mb-6">Klaipėdos veja</h3>
             <p className="text-stone-400 text-sm mb-6 leading-relaxed">
-              Profesionalios apželdinimo paslaugos, skirtos kurti tvarias, gražias ir funkcionalias žaliąsias erdves Klaipėdos regiono namams.
+              Profesionalios apželdinimo paslaugos, skirtos kurti tvarias, gražias ir funkcionalias žaliąsias erdves namams.
             </p>
             <div className="flex gap-4">
               <a
@@ -50,6 +50,7 @@ const Footer: React.FC = () => {
               <li><a href="#services" className="hover:text-nature-light transition-colors">Laistymo sistemos</a></li>
               <li><a href="#services" className="hover:text-nature-light transition-colors">Vejos priežiūra</a></li>
               <li><a href="#services" className="hover:text-nature-light transition-colors">Dekoratyvinis apželdinimas</a></li>
+              <li><a href="#services" className="hover:text-nature-light transition-colors">Kiemo apšvietimas</a></li>
             </ul>
           </div>
 

@@ -93,9 +93,11 @@ const ServiceModal: React.FC<{ service: Service; onClose: () => void }> = ({ ser
 
             <div className="prose prose-lg text-gray-600 mb-10 max-w-none">
               <h3 className="font-serif text-2xl font-bold text-gray-800 mb-4">Apie paslaugą</h3>
-              <p className="leading-relaxed">
-                {service.fullDescription}
-              </p>
+              {service.fullDescription.split('\n\n').map((paragraph, idx) => (
+                <p key={idx} className="leading-relaxed mb-4 last:mb-0">
+                  {paragraph}
+                </p>
+              ))}
             </div>
 
 

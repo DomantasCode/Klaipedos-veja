@@ -27,9 +27,9 @@ const About: React.FC = () => {
                     {/* Secondary Floating Image */}
                     <div className="absolute -bottom-12 -right-12 w-48 h-48 md:w-64 md:h-64 rounded-[2rem] overflow-hidden border-[8px] border-stone-50 shadow-xl z-20 hidden md:block">
                         <img
-                            src="/about-detail-pro.JPG"
+                            src="/nauja-foto.jpg"
                             alt="Green Grass Detail"
-                            className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-700"
+                            className="w-full h-full object-cover object-left brightness-90 transform scale-125 hover:scale-135 transition-transform duration-700"
                         />
                     </div>
 
@@ -63,14 +63,13 @@ const About: React.FC = () => {
                             <span>Mūsų Istorija</span>
                         </div>
 
-                        <h2 className="font-serif text-4xl md:text-5xl font-bold text-nature-dark mb-8 leading-tight">
-                            Kuriame harmoniją tarp <br />
-                            <span className="relative inline-block text-nature-green">
-                                žmogaus ir gamtos
+                        <h2 className="font-serif text-3xl md:text-4xl font-bold text-nature-dark mb-8 leading-tight">
+                            Mūsų tikslas – ne tik įrengti veją, bet ir <span className="relative inline-block text-nature-green">
+                                sukurti erdvę,
                                 <svg className="absolute w-full h-3 -bottom-2 left-0 text-nature-light/40" viewBox="0 0 100 10" preserveAspectRatio="none">
                                     <path d="M0 5 Q 50 15 100 5" stroke="currentColor" strokeWidth="6" fill="none" strokeLinecap="round" />
                                 </svg>
-                            </span>
+                            </span> kurioje norisi būti.
                         </h2>
 
                         <div className="prose prose-lg text-gray-600 mb-10">
@@ -78,7 +77,7 @@ const About: React.FC = () => {
                                 „Klaipėdos veja“ – tai daugiau nei apželdinimo paslaugos. Tai verslas, kuriam svarbi estetiška ir tvarkinga aplinka. Mes suprantame, kad kiemas kuria Jūsų namų jaukumą ir pridėtinę vertę.
                             </p>
                             <p className="leading-relaxed">
-                                Mūsų filosofija paprasta: <strong>jokių kompromisų kokybei</strong>. Naudojame tik sertifikuotas sėklas, profesionalias laistymo sistemas ir laiko patikrintas dirvos paruošimo metodikas, kad jūsų veja džiugintų ne vienerius metus.
+                                Mūsų filosofija paprasta: <strong>jokių kompromisų kokybei</strong>. Naudojame tik sertifikuotas sėklas, kokybiškas laistymo sistemas ir laiko patikrintas dirvos paruošimo metodikas, kad jūsų veja džiugintų ne vienerius metus.
                             </p>
                         </div>
                     </SlideUp>
@@ -110,17 +109,7 @@ const About: React.FC = () => {
                         </SlideUp>
                     </div>
 
-                    {/* Quote */}
-                    <div className="mt-10 pt-8 border-t border-gray-200">
-                        <SlideUp delay={0.4}>
-                            <blockquote className="flex gap-4">
-                                <div className="text-nature-light opacity-50 text-4xl font-serif">"</div>
-                                <div className="italic text-gray-500 font-medium text-lg pt-2">
-                                    Mūsų tikslas – ne tik pasėti žolę, bet ir sukurti erdvę, kurioje norisi būti.
-                                </div>
-                            </blockquote>
-                        </SlideUp>
-                    </div>
+
                 </div>
             </div>
         </div>
