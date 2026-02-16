@@ -22,7 +22,7 @@ const Hero: React.FC = () => {
         {/* Mobile Background Image */}
         <div className="absolute inset-0 block md:hidden">
           <img
-            src="/hero-poster.jpg"
+            src="/hero-poster.png"
             alt="Hero Background Frame"
             className="w-full h-full object-cover"
           />
