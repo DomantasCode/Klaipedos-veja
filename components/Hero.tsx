@@ -9,7 +9,6 @@ const Hero: React.FC = () => {
   React.useEffect(() => {
     if (videoRef.current) {
       videoRef.current.playbackRate = 1.0;
-      videoRef.current.currentTime = 2.0; // Start from 2nd second
       videoRef.current.play().catch((error) => {
         console.log("Autoplay prevented:", error);
       });
@@ -23,7 +22,7 @@ const Hero: React.FC = () => {
         {/* Mobile Background Image */}
         <div className="absolute inset-0 block md:hidden">
           <img
-            src="/hero-poster.png"
+            src="/hero-mobile-poster.jpg"
             alt="Hero Background Frame"
             className="w-full h-full object-cover"
           />
@@ -50,7 +49,7 @@ const Hero: React.FC = () => {
             preload="auto"
             className="w-full h-full object-cover scale-125"
           >
-            <source src="/hero-video-new.mp4" type="video/mp4" />
+            <source src="/hero-video.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>

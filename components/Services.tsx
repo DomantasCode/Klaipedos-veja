@@ -109,18 +109,16 @@ const ServiceModal: React.FC<{ service: Service; onClose: () => void }> = ({ ser
                 {service.processTitle || 'Darbų eiga'}
               </h3>
 
-              <div className={`relative ${service.processTitle ? 'space-y-6' : 'border-l-2 border-stone-100 ml-3 space-y-10 pb-2'}`}>
+              <div className="relative border-l-2 border-stone-100 ml-3 space-y-10 pb-2">
                 {service.process.map((step, idx) => (
-                  <div key={idx} className={`relative ${service.processTitle ? 'pl-0 bg-stone-50 p-8 rounded-[2rem] hover:bg-stone-100 transition-colors' : 'pl-8'}`}>
-                    {/* Timeline Dot only if no custom title */}
-                    {!service.processTitle && (
-                      <div className={`absolute -left-[9px] top-0 w-4 h-4 rounded-full border-2 border-white ${service.color} shadow-sm`}></div>
-                    )}
+                  <div key={idx} className="relative pl-8">
+                    {/* Timeline Dot */}
+                    <div className={`absolute -left-[9px] top-0 w-4 h-4 rounded-full border-2 border-white ${service.color} shadow-sm`}></div>
 
-                    <h4 className={`font-serif text-xl font-bold text-gray-800 mb-3 ${service.processTitle ? 'pl-5' : ''}`}>
+                    <h4 className="font-serif text-xl font-bold text-gray-800 mb-3">
                       {step.title}
                     </h4>
-                    <p className={`text-gray-500 leading-relaxed ${service.processTitle ? 'pl-5' : ''}`}>{step.desc}</p>
+                    <p className="text-gray-500 leading-relaxed">{step.desc}</p>
                   </div>
                 ))}
               </div>
