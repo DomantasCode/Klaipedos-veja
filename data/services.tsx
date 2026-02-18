@@ -90,7 +90,7 @@ export const services: Service[] = [
     {
         id: '04',
         icon: <Leaf className="w-8 h-8" />,
-        title: 'Dekoratyvinis Apželdinimas',
+        title: 'Dekoratyvinis apželdinimas',
         description: 'Estetiškos erdvės sukūrimas derinant augalus bei dekoratyvinę skaldą.',
         features: ['Augalų sodinimas', 'Dekoratyviniai akmenukai', 'Mulčiavimas'],
         color: 'bg-emerald-600',
