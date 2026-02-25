@@ -13,6 +13,7 @@ const BeforeAfterCard: React.FC<{ before: string; after: string; alt: string }> 
           src={before}
           alt={`Prieš - ${alt}`}
           className="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-110"
+          loading="lazy"
         />
         <div className="absolute top-4 left-4">
           <span className="bg-white/90 text-stone-900 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-lg backdrop-blur-md">
@@ -27,6 +28,7 @@ const BeforeAfterCard: React.FC<{ before: string; after: string; alt: string }> 
           src={after}
           alt={`Po - ${alt}`}
           className="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-110"
+          loading="lazy"
         />
         <div className="absolute top-4 right-4">
           <span className="bg-nature-green text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-lg">

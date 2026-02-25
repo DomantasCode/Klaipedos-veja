@@ -22,7 +22,7 @@ const Header: React.FC = () => {
   // Update active section based on scroll position
   useEffect(() => {
     const handleScroll = () => {
-      const sections = NAV_LINKS.map(link => link.href.substring(1));
+      const sections = ['home', ...NAV_LINKS.map(link => link.href.substring(1))];
 
       const current = sections.find(section => {
         const element = document.getElementById(section);
@@ -34,7 +34,9 @@ const Header: React.FC = () => {
       });
 
       if (current) {
-        setActiveSection(current);
+        setActiveSection(current === 'home' ? '' : current);
+      } else if (window.scrollY < 100) {
+        setActiveSection('');
       }
     };
 

@@ -17,47 +17,36 @@ const Hero: React.FC = () => {
 
   return (
     <div className="relative h-[92vh] md:h-screen min-h-[500px] md:min-h-[600px] flex items-center justify-center overflow-hidden">
-      {/* Background Video with Overlay */}
+      {/* Background Video with Mobile Poster Fallback */}
       <div className="absolute inset-0 z-0">
-        {/* Mobile Background Image */}
-        <div className="absolute inset-0 block md:hidden">
-          <img
-            src="/hero-mobile-poster.jpg"
-            alt="Hero Background Frame"
-            className="w-full h-full object-cover"
-          />
-        </div>
+        <style>
+          {`
+            video::-webkit-media-controls {
+              display: none !important;
+            }
+            video::-webkit-media-controls-start-playback-button {
+              display: none !important;
+            }
+          `}
+        </style>
 
-        {/* Desktop Video Background */}
-        <div className="absolute inset-0 hidden md:block">
-          <style>
-            {`
-              video::-webkit-media-controls {
-                display: none !important;
-              }
-              video::-webkit-media-controls-start-playback-button {
-                display: none !important;
-              }
-            `}
-          </style>
-          <video
-            ref={videoRef}
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="auto"
-            className="w-full h-full object-cover scale-125"
-          >
-            <source src="/hero-video.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </div>
+        {/* We use poster="/hero-mobile-poster.jpg" so if video doesn't load/play on mobile, this image shows */}
+        <video
+          ref={videoRef}
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster="/hero-mobile-poster.jpg"
+          preload="auto"
+          className="w-full h-full object-cover scale-125"
+        >
+          <source src="/hero-video.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
 
         {/* Dark Overlay for Text Readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-nature-dark/90"></div>
-
-
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-nature-dark/90 pointer-events-none"></div>
       </div>
 
       {/* Content */}

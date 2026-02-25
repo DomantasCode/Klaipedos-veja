@@ -19,6 +19,7 @@ const About: React.FC = () => {
                             src="/about-main-real-bright.png"
                             alt="Mūsų komanda"
                             className="w-full h-[500px] object-cover"
+                            loading="lazy"
                         />
                         {/* Overlay Gradient */}
                         <div className="absolute inset-0 bg-gradient-to-t from-nature-dark/60 to-transparent opacity-60"></div>
@@ -28,8 +29,9 @@ const About: React.FC = () => {
                     <div className="absolute -bottom-12 -right-12 w-48 h-48 md:w-64 md:h-64 rounded-[2rem] overflow-hidden border-[8px] border-stone-50 shadow-xl z-20 hidden md:block">
                         <img
                             src="/nauja-foto.jpg"
-                            alt="Green Grass Detail"
+                            alt="Žalios vejos detalė"
                             className="w-full h-full object-cover object-left brightness-90 transform scale-125 hover:scale-135 transition-transform duration-700"
+                            loading="lazy"
                         />
                     </div>
 

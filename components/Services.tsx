@@ -26,6 +26,7 @@ const ServiceModal: React.FC<{ service: Service; onClose: () => void }> = ({ ser
             src={service.image}
             alt={service.title}
             className="w-full h-full object-cover"
+            loading="lazy"
           />
           <div className="absolute inset-0 bg-black/10"></div>
 
@@ -192,6 +193,7 @@ const Services: React.FC = () => {
                     src={service.image}
                     alt={service.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-300"></div>
                 </div>

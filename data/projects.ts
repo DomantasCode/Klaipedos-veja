@@ -12,8 +12,8 @@ export const projects: Project[] = [
         id: 3,
         title: "Vejos įrengimas",
         category: "Vejos įrengimas",
-        beforeImg: "/images/gallery/before1.jpg",
-        afterImg: "/images/gallery/after1.jpg",
+        beforeImg: "/images/gallery/new1before.jpg",
+        afterImg: "/images/gallery/new1after.jpg",
     },
     {
         id: 4,
@@ -26,23 +26,23 @@ export const projects: Project[] = [
 
     {
         id: 5,
-        title: "Pilnas kiemo paruošimas",
-        category: "Sklypo paruošimas",
-        beforeImg: "/images/gallery/before.JPG",
-        afterImg: "/images/gallery/after.JPG",
+        title: "Patvorių tvarkymas ir piktžolių šalinimas",
+        category: "Vejos priežiūra",
+        beforeImg: "/images/gallery/new2before.jpg",
+        afterImg: "/images/gallery/new2after.jpg",
     },
     {
         id: 6,
-        title: "Juodžemio atvežimas ir sklypo išlyginimas",
-        category: "Sklypo paruošimas",
-        beforeImg: "/images/gallery/fence_before.jpg",
-        afterImg: "/images/gallery/fence_after.jpg",
+        title: "Vejos įrengimas",
+        category: "Vejos įrengimas",
+        beforeImg: "/images/gallery/new3before.jpg",
+        afterImg: "/images/gallery/new3after.jpg",
     },
     {
         id: 7,
-        title: "Vejos įrengimas",
-        category: "Vejos įrengimas",
-        beforeImg: "/images/gallery/before2.jpg",
-        afterImg: "/images/gallery/after2.jpg",
+        title: "Apleistos vejos atnaujinimas ir atkūrimas",
+        category: "Vejos priežiūra",
+        beforeImg: "/images/gallery/new4before.jpg",
+        afterImg: "/images/gallery/new4after.jpeg",
     }
 ];
