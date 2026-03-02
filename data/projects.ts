@@ -17,7 +17,7 @@ export const projects: Project[] = [
     },
     {
         id: 4,
-        title: "Dekoratyvinis akmenų grindinio įrengimas",
+        title: "Dekoratyvinės skaldos įrengimas",
         category: "Gerbūvio darbai",
         beforeImg: "/images/gallery/mulc_before.jpg",
         afterImg: "/images/gallery/mulc_after.jpg",
@@ -26,7 +26,7 @@ export const projects: Project[] = [
 
     {
         id: 5,
-        title: "Patvorių tvarkymas ir piktžolių šalinimas",
+        title: "Trinkelių tvarkymo ir įrengimo darbai nedidelės apimties plotuose",
         category: "Vejos priežiūra",
         beforeImg: "/images/gallery/new2before.jpg",
         afterImg: "/images/gallery/new2after.jpg",
@@ -40,7 +40,7 @@ export const projects: Project[] = [
     },
     {
         id: 7,
-        title: "Apleistos vejos atnaujinimas ir atkūrimas",
+        title: "Vejos antnaujinimas",
         category: "Vejos priežiūra",
         beforeImg: "/images/gallery/new4before.jpg",
         afterImg: "/images/gallery/new4after.jpeg",
