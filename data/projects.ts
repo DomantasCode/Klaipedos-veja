@@ -26,18 +26,19 @@ export const projects: Project[] = [
 
     {
         id: 5,
-        title: "Trinkelių tvarkymo ir įrengimo darbai nedidelės apimties plotuose",
-        category: "Vejos priežiūra",
-        beforeImg: "/images/gallery/new2before.jpg",
-        afterImg: "/images/gallery/new2after.jpg",
-    },
-    {
-        id: 6,
         title: "Vejos įrengimas",
         category: "Vejos įrengimas",
         beforeImg: "/images/gallery/new3before.jpg",
         afterImg: "/images/gallery/new3after.jpg",
     },
+    {
+        id: 6,
+        title: "Trinkelių tvarkymo ir įrengimo darbai nedidelės apimties plotuose",
+        category: "Vejos priežiūra",
+        beforeImg: "/images/gallery/new2before.jpg",
+        afterImg: "/images/gallery/new2after.jpg",
+    },
+
     {
         id: 7,
         title: "Vejos antnaujinimas",
