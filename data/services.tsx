@@ -83,7 +83,7 @@ export const services: Service[] = [
             { title: 'Skarifikavimas', desc: 'Specialia technika pašaliname seną, negyvą žolę ir samanas, kad veja galėtų geriau kvėpuoti ir tankiau augti.' },
             { title: 'Tręšimas', desc: 'Tolygiai paskleidžiame trąšas, užtikrinančias sodrią spalvą, stipresnį augimą bei vejos atsparumą.' },
             { title: 'Piktžolių naikinimas', desc: 'Tinkamų herbicidų panaudojimas piktžolių pašalinimui iš vejos.' },
-            { title: 'Aeravimas + „levelingas“', desc: 'Atliekame „core“ aeraciją, o susidariusias ertmes užpildome smėliu. Tai pagerina dirvos struktūrą, šaknų būklę, drėgmės įsisavinimą ir padeda išlyginti nedidelius nelygumus.' }
+            { title: '"Core" aeravimas + „levelingas“', desc: 'Atliekame „core“ aeraciją, o susidariusias ertmes užpildome smėliu. Tai pagerina dirvos struktūrą, šaknų būklę, drėgmės įsisavinimą ir padeda išlyginti nedidelius nelygumus.' }
         ],
         image: "/service-maintenance-ref.png"
     },
